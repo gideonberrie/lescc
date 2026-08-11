@@ -1,10 +1,24 @@
+import Image from "next/image";
 import Link from "next/link";
 import TranslateButton from "@/app/_components/translate-button";
 
 export default function Header() {
   return (
     <header className="border-b border-black/[.08] dark:border-white/[.145]">
-      <div className="flex flex-wrap items-center justify-between gap-4 px-[1in] py-4">
+      <div className="flex justify-center px-[1in] py-3">
+        <Link href="/" className="relative h-16 w-40">
+          <Image
+            src="/logo.png"
+            alt="LESCC logo"
+            fill
+            sizes="160px"
+            className="object-contain"
+            priority
+          />
+        </Link>
+      </div>
+
+      <div className="flex flex-wrap items-center justify-between gap-4 border-t border-black/[.08] px-[1in] py-4 dark:border-white/[.145]">
         <div className="flex items-center gap-6">
           <Link href="/" className="text-lg font-semibold tracking-tight">
             LESCC
