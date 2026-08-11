@@ -20,7 +20,12 @@ export default function Footer() {
           <Link href="#get-involved" className="hover:text-zinc-950 dark:hover:text-zinc-50">
             Get Involved
           </Link>
-          <Link href="#donate" className="hover:text-zinc-950 dark:hover:text-zinc-50">
+          <Link
+            href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-20802"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-zinc-950 dark:hover:text-zinc-50"
+          >
             Donate
           </Link>
         </nav>
