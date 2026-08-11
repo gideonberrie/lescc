@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-black/[.08] dark:border-white/[.145]">
       <div className="flex flex-col gap-6 px-[1in] py-10 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex flex-col gap-2">
+        <div className="-mt-[0.25in] flex flex-col gap-2">
           <p className="text-sm font-semibold">Stay in the loop</p>
           <NewsletterSignup />
         </div>
