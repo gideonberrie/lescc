@@ -4,7 +4,7 @@ import TranslateButton from "@/app/_components/translate-button";
 export default function Header() {
   return (
     <header className="border-b border-black/[.08] dark:border-white/[.145]">
-      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-6 py-4">
+      <div className="flex flex-wrap items-center justify-between gap-4 px-[1in] py-4">
         <Link href="/" className="text-lg font-semibold tracking-tight">
           LESCC
         </Link>
@@ -25,7 +25,6 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <TranslateButton />
           <Link
             href="#get-involved"
             className="rounded-full border border-black/[.08] px-4 py-2 text-sm font-medium transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-white/[.06]"
@@ -38,6 +37,7 @@ export default function Header() {
           >
             Donate
           </Link>
+          <TranslateButton />
         </div>
       </div>
     </header>

@@ -4,7 +4,7 @@ import NewsletterSignup from "@/app/_components/newsletter-signup";
 export default function Footer() {
   return (
     <footer className="border-t border-black/[.08] dark:border-white/[.145]">
-      <div className="mx-auto flex max-w-5xl flex-col gap-6 px-6 py-10 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col gap-6 px-[1in] py-10 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-col gap-2">
           <p className="text-sm font-semibold">Stay in the loop</p>
           <NewsletterSignup />
@@ -26,10 +26,8 @@ export default function Footer() {
         </nav>
       </div>
 
-      <div className="border-t border-black/[.08] px-6 py-4 text-xs text-zinc-500 dark:border-white/[.145] dark:text-zinc-500">
-        <p className="mx-auto max-w-5xl">
-          © {new Date().getFullYear()} LESCC. All rights reserved.
-        </p>
+      <div className="border-t border-black/[.08] px-[1in] py-4 text-xs text-zinc-500 dark:border-white/[.145] dark:text-zinc-500">
+        <p>© {new Date().getFullYear()} LESCC. All rights reserved.</p>
       </div>
     </footer>
   );

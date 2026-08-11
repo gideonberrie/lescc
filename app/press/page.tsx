@@ -25,7 +25,7 @@ const PLACEHOLDER_RELEASES = [
 
 export default function PressPage() {
   return (
-    <div className="mx-auto w-full max-w-3xl px-6 py-20">
+    <div className="w-full max-w-3xl px-[1in] py-20">
       <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
         Press
       </h1>

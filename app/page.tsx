@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-1 flex-col items-center justify-center px-6 py-24 text-center">
+    <div className="flex flex-1 flex-col items-center justify-center px-[1in] py-24 text-center">
       <h1 className="max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
         [Placeholder headline about LESCC]
       </h1>

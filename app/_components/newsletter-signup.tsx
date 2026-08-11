@@ -24,7 +24,7 @@ export default function NewsletterSignup() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex w-full max-w-md flex-col gap-2 sm:flex-row"
+      className="flex w-full max-w-[calc(28rem-0.25in)] flex-col gap-2 sm:flex-row"
     >
       <label htmlFor="newsletter-email" className="sr-only">
         Email address
