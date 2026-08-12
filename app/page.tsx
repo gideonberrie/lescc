@@ -27,6 +27,15 @@ const BLUEPRINTS: { src: string; alt: string }[] = [
   },
 ];
 
+const CONTEXT = [
+  `Built in the 1930s to serve riders of the Second Avenue elevated subway, the comfort station at Allen Street and Delancey Street remained open to the public until the 1950s, when it was closed. The City of New York acquired the site in 1930, and NYC Parks has maintained the Allen Street Malls since 1929. For more than seventy years the building has sat vacant and boarded up — its masonry largely intact, but its interior in an advanced state of disrepair.`,
+  `The Lower East Side is experiencing the city's first sustained decline in its artist population in decades and has the highest rate of economic inequality in New York City. Rising rents and ongoing gentrification have left long-term, lower-income, and immigrant residents with fewer places to gather, and small arts organizations with fewer places to work. Residents consistently point to the same needs: affordable cultural programming, intergenerational gathering space, free or low-cost arts education, and accessible venues for neighborhood traditions.`,
+  `In response, the Lower East Side Cultural Center proposes to renovate the building into a multidisciplinary cultural hub — offering low-cost arts education, community storytelling, performances, and heritage programming alongside a café and public restroom. The project is backed by community partners including Henry Street Settlement, University Settlement, and the Tenement Museum, and will include artist residencies, a youth workforce program with Emma Lazarus High School, and free and low-cost programming for the neighborhood it serves.`,
+];
+
+const HEADING_CLASS =
+  "text-sm font-semibold tracking-wide text-[#068e4a] uppercase";
+
 export default function Home() {
   return (
     <>
@@ -66,14 +75,10 @@ export default function Home() {
       </div>
 
       <div id="the-building" className="flex flex-col gap-8 px-[0.5in] pt-8 pb-24">
-        <div>
+        <div className="mx-auto w-full sm:w-1/2">
           <div className="grid grid-cols-1 gap-8 pb-2 sm:grid-cols-2">
-            <p className="text-sm font-semibold tracking-wide text-[#068e4a] uppercase">
-              Before
-            </p>
-            <p className="text-sm font-semibold tracking-wide text-[#068e4a] uppercase">
-              After
-            </p>
+            <p className={HEADING_CLASS}>Before</p>
+            <p className={HEADING_CLASS}>After</p>
           </div>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
             {PAIRS.map((item) => (
@@ -85,7 +90,7 @@ export default function Home() {
                   src={item.src}
                   alt={item.alt}
                   fill
-                  sizes="(min-width: 640px) 45vw, 100vw"
+                  sizes="(min-width: 640px) 23vw, 100vw"
                   className="object-cover"
                 />
               </div>
@@ -93,10 +98,20 @@ export default function Home() {
           </div>
         </div>
 
-        <div>
-          <h2 className="pb-2 text-center text-2xl font-semibold tracking-tight">
-            Floor Plans
-          </h2>
+        <div className="mx-auto flex max-w-2xl flex-col gap-4">
+          <h2 className={`${HEADING_CLASS} text-center`}>Context</h2>
+          {CONTEXT.map((paragraph) => (
+            <p
+              key={paragraph.slice(0, 20)}
+              className="text-lg text-zinc-600 dark:text-zinc-400"
+            >
+              {paragraph}
+            </p>
+          ))}
+        </div>
+
+        <div className="mx-auto w-full sm:w-1/2">
+          <h2 className={`${HEADING_CLASS} pb-2 text-center`}>Floor Plans</h2>
           {BLUEPRINTS.map((item) => (
             <div
               key={item.src}
@@ -106,7 +121,7 @@ export default function Home() {
                 src={item.src}
                 alt={item.alt}
                 fill
-                sizes="(min-width: 640px) 90vw, 100vw"
+                sizes="(min-width: 640px) 45vw, 100vw"
                 className="object-contain"
               />
             </div>
