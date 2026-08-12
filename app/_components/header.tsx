@@ -24,6 +24,12 @@ export default function Header() {
             >
               Press
             </Link>
+            <Link
+              href="/resources"
+              className="text-zinc-600 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
+            >
+              Resources
+            </Link>
           </nav>
         </div>
 
@@ -54,6 +60,26 @@ export default function Header() {
             Donate
           </Link>
           <TranslateButton />
+          <Link
+            href="https://www.instagram.com/thefreestoreproject/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="rounded-full p-2 text-zinc-600 transition-colors hover:bg-black/[.04] hover:text-zinc-950 dark:text-zinc-400 dark:hover:bg-white/[.06] dark:hover:text-zinc-50"
+          >
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" stroke="none" />
+            </svg>
+          </Link>
         </div>
       </div>
     </header>

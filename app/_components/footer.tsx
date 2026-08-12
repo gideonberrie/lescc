@@ -17,6 +17,9 @@ export default function Footer() {
           <Link href="/press" className="hover:text-zinc-950 dark:hover:text-zinc-50">
             Press
           </Link>
+          <Link href="/resources" className="hover:text-zinc-950 dark:hover:text-zinc-50">
+            Resources
+          </Link>
           <Link href="#get-involved" className="hover:text-zinc-950 dark:hover:text-zinc-50">
             Get Involved
           </Link>
