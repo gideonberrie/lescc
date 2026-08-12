@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-1 flex-col items-center justify-center px-[1in] py-24 text-center">
+    <div className="flex flex-1 flex-col items-center justify-center px-[0.5in] py-24 text-center">
       <h1 className="max-w-2xl text-4xl font-semibold tracking-tight text-[#068e4a] sm:text-5xl">
         A new home for culture, community, and continuity in NYC
       </h1>

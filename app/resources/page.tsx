@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ResourcesPage() {
   return (
-    <div className="w-full px-[1in] py-20">
+    <div className="w-full px-[0.5in] py-20">
       <Script
         src="https://js.arcgis.com/5.1/embeddable-components/"
         type="module"

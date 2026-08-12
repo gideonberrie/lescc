@@ -5,7 +5,7 @@ import TranslateButton from "@/app/_components/translate-button";
 export default function Header() {
   return (
     <header className="border-b border-black/[.08] dark:border-white/[.145]">
-      <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 px-[1in] py-4">
+      <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 px-[0.5in] py-4">
         <div className="flex items-center gap-6">
           <Link
             href="/"
@@ -49,21 +49,6 @@ export default function Header() {
 
         <div className="flex items-center justify-self-end gap-3">
           <Link
-            href="#get-involved"
-            className="rounded-full border border-black/[.08] px-4 py-2 text-sm font-medium transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-white/[.06]"
-          >
-            Get Involved
-          </Link>
-          <Link
-            href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-20802"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full bg-[#068e4a] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#057a3f]"
-          >
-            Donate
-          </Link>
-          <TranslateButton />
-          <Link
             href="https://www.instagram.com/thefreestoreproject/"
             target="_blank"
             rel="noopener noreferrer"
@@ -83,6 +68,21 @@ export default function Header() {
               <circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" stroke="none" />
             </svg>
           </Link>
+          <Link
+            href="#get-involved"
+            className="rounded-full border border-black/[.08] px-4 py-2 text-sm font-medium transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-white/[.06]"
+          >
+            Get Involved
+          </Link>
+          <Link
+            href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-20802"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full bg-[#068e4a] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#057a3f]"
+          >
+            Donate
+          </Link>
+          <TranslateButton />
         </div>
       </div>
     </header>
