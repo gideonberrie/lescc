@@ -27,12 +27,6 @@ const BLUEPRINTS: { src: string; alt: string }[] = [
   },
 ];
 
-const CONTEXT = [
-  `Built in the 1930s, the comfort station at Allen Street and Delancey Street remained open to the public until the 1950s, when it was closed. For more than seventy years the building has sat vacant and boarded up. Now Parks has opened the door for new development, with the aim of making it a concession stand. The Lower East Side Cultural Center, in partnership with Porto Rico Importing Co., would bring high-quality concessions while serving the neighborhood and enhancing its cultural footprint.`,
-  `The Lower East Side is experiencing its first sustained decline in its artist population in decades and has the highest rate of economic inequality in the city. Rising rents and ongoing gentrification have left long-term, lower-income, and immigrant residents with fewer places to gather, and small arts organizations with fewer places to work. Residents consistently point to the same needs: affordable cultural programming, intergenerational gathering space, free or low-cost arts education, and accessible venues for neighborhood traditions.`,
-  `We propose to renovate the building into a multidisciplinary cultural hub — offering low-cost arts education, community storytelling, performances, and heritage programming alongside a café and public restroom. The project is backed by community partners including Henry Street Settlement, University Settlement, and the Tenement Museum, and will include artist residencies, a youth workforce program with Emma Lazarus High School, and free and low-cost programming for the neighborhood it serves.`,
-];
-
 const HEADING_CLASS =
   "text-sm font-semibold tracking-wide text-[#068e4a] uppercase";
 
@@ -100,14 +94,50 @@ export default function Home() {
 
         <div className="flex flex-col gap-4">
           <h2 className={`${HEADING_CLASS} text-center`}>Context</h2>
-          {CONTEXT.map((paragraph) => (
-            <p
-              key={paragraph.slice(0, 20)}
-              className="text-lg text-zinc-600 dark:text-zinc-400"
-            >
-              {paragraph}
-            </p>
-          ))}
+          <p className="text-lg text-zinc-600 dark:text-zinc-400">
+            Built in the 1930s, the comfort station at Allen Street and
+            Delancey Street remained open to the public until the 1950s,
+            when it was closed.{" "}
+            <strong className="font-semibold">
+              For more than seventy years the building has sat vacant and
+              boarded up. Now Parks has opened the door for new
+              development, with the aim of making it a concession stand.
+            </strong>{" "}
+            The Lower East Side Cultural Center,{" "}
+            <strong className="font-semibold">
+              in partnership with Porto Rico Importing Co.
+            </strong>
+            , would bring high-quality concessions while serving the
+            neighborhood and enhancing its cultural footprint.
+          </p>
+          <p className="text-lg text-zinc-600 dark:text-zinc-400">
+            The Lower East Side is experiencing its first sustained decline
+            in its artist population in decades and has the highest rate of
+            economic inequality in the city.{" "}
+            <strong className="font-semibold">
+              Rising rents and ongoing gentrification have left long-term,
+              lower-income, and immigrant residents with fewer places to
+              gather, and small arts organizations with fewer places to
+              work.
+            </strong>{" "}
+            Residents consistently point to the same needs: affordable
+            cultural programming, intergenerational gathering space, free
+            or low-cost arts education, and accessible venues for
+            neighborhood traditions.
+          </p>
+          <p className="text-lg text-zinc-600 dark:text-zinc-400">
+            <strong className="font-semibold">
+              We propose to renovate the building into a multidisciplinary
+              cultural hub
+            </strong>{" "}
+            — offering low-cost arts education, community storytelling,
+            performances, and heritage programming alongside a café and
+            public restroom. The project is backed by community partners
+            including Henry Street Settlement, University Settlement, and
+            the Tenement Museum, and will include artist residencies, a
+            youth workforce program with Emma Lazarus High School, and free
+            and low-cost programming for the neighborhood it serves.
+          </p>
         </div>
 
         <div className="mx-auto w-full sm:w-1/2">
