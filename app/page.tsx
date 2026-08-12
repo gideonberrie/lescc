@@ -1,11 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const GALLERY: {
-  src: string;
-  alt: string;
-  fit?: "cover" | "contain";
-}[] = [
+const PAIRS: { src: string; alt: string }[] = [
   {
     src: "/renderings/before-corner.jpg",
     alt: "The building today, vacant and fenced off at the corner of Allen and Delancey Streets",
@@ -20,20 +16,14 @@ const GALLERY: {
   },
   {
     src: "/renderings/entrance-day.jpg",
-    alt: "Rendering of the restored Allen Street entrance, with new steps and railings",
+    alt: "Rendering of the facade during the day, with the restored entrance",
   },
-  {
-    src: "/renderings/exterior-dusk.jpg",
-    alt: "Rendering of the facade at dusk, with exhibition space glowing behind the arched windows",
-  },
-  {
-    src: "/renderings/interior-lobby.jpg",
-    alt: "Rendering of the interior lobby and reading lounge, with Classroom A visible",
-  },
+];
+
+const BLUEPRINTS: { src: string; alt: string }[] = [
   {
     src: "/renderings/floor-plans.jpg",
     alt: "Conceptual floor plans for the main floor and basement",
-    fit: "contain",
   },
 ];
 
@@ -76,7 +66,24 @@ export default function Home() {
       </div>
 
       <div id="the-building" className="flex flex-col gap-8 px-[0.5in] pb-24">
-        {GALLERY.map((item) => (
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+          {PAIRS.map((item) => (
+            <div
+              key={item.src}
+              className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-900"
+            >
+              <Image
+                src={item.src}
+                alt={item.alt}
+                fill
+                sizes="(min-width: 640px) 45vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+          ))}
+        </div>
+
+        {BLUEPRINTS.map((item) => (
           <div
             key={item.src}
             className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-900"
@@ -86,9 +93,7 @@ export default function Home() {
               alt={item.alt}
               fill
               sizes="(min-width: 640px) 90vw, 100vw"
-              className={
-                item.fit === "contain" ? "object-contain" : "object-cover"
-              }
+              className="object-contain"
             />
           </div>
         ))}

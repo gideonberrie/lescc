@@ -4,15 +4,8 @@ import TranslateButton from "@/app/_components/translate-button";
 
 export default function Header() {
   return (
-    <header className="relative overflow-hidden border-b border-black/[.08] dark:border-white/[.145]">
-      <Image
-        src="/renderings/exterior-day.jpg"
-        alt=""
-        aria-hidden="true"
-        fill
-        className="object-cover opacity-10"
-      />
-      <div className="relative grid grid-cols-[1fr_auto_1fr] items-center gap-4 px-[0.5in] py-4">
+    <header className="border-b border-black/[.08] dark:border-white/[.145]">
+      <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 px-[0.5in] py-4">
         <div className="flex items-center gap-6">
           <Link
             href="/"
