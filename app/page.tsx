@@ -65,9 +65,39 @@ export default function Home() {
         </div>
       </div>
 
-      <div id="the-building" className="flex flex-col gap-8 px-[0.5in] pb-24">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-          {PAIRS.map((item) => (
+      <div id="the-building" className="flex flex-col gap-8 px-[0.5in] pt-8 pb-24">
+        <div>
+          <div className="grid grid-cols-1 gap-8 pb-2 sm:grid-cols-2">
+            <p className="text-sm font-semibold tracking-wide text-[#068e4a] uppercase">
+              Before
+            </p>
+            <p className="text-sm font-semibold tracking-wide text-[#068e4a] uppercase">
+              After
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+            {PAIRS.map((item) => (
+              <div
+                key={item.src}
+                className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-900"
+              >
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  sizes="(min-width: 640px) 45vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h2 className="pb-2 text-center text-2xl font-semibold tracking-tight">
+            Floor Plans
+          </h2>
+          {BLUEPRINTS.map((item) => (
             <div
               key={item.src}
               className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-900"
@@ -76,27 +106,12 @@ export default function Home() {
                 src={item.src}
                 alt={item.alt}
                 fill
-                sizes="(min-width: 640px) 45vw, 100vw"
-                className="object-cover"
+                sizes="(min-width: 640px) 90vw, 100vw"
+                className="object-contain"
               />
             </div>
           ))}
         </div>
-
-        {BLUEPRINTS.map((item) => (
-          <div
-            key={item.src}
-            className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-900"
-          >
-            <Image
-              src={item.src}
-              alt={item.alt}
-              fill
-              sizes="(min-width: 640px) 90vw, 100vw"
-              className="object-contain"
-            />
-          </div>
-        ))}
       </div>
     </>
   );
