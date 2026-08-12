@@ -11,12 +11,12 @@ const PAIRS: { src: string; alt: string }[] = [
     alt: "Rendering of the same corner with the completed Lower East Side Cultural Center",
   },
   {
-    src: "/renderings/before-detail.jpg",
-    alt: "A closer look through the chain-link fence at the boarded, graffiti-covered storefront",
+    src: "/renderings/entrance-before.jpg",
+    alt: "The building's entrance today, seen through the chain-link fence",
   },
   {
-    src: "/renderings/entrance-day.jpg",
-    alt: "Rendering of the facade during the day, with the restored entrance",
+    src: "/renderings/entrance-dusk.jpg",
+    alt: "Rendering of the entrance facade at dusk, glowing from inside",
   },
 ];
 
