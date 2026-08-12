@@ -7,8 +7,11 @@ export default function Header() {
     <header className="border-b border-black/[.08] dark:border-white/[.145]">
       <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 px-[1in] py-4">
         <div className="flex items-center gap-6">
-          <Link href="/" className="text-lg font-semibold tracking-tight">
-            LESCC
+          <Link
+            href="/"
+            className="text-lg font-semibold tracking-tight text-[#068e4a]"
+          >
+            Lower East Side Cultural Center
           </Link>
 
           <nav className="flex items-center gap-6 text-sm font-medium">

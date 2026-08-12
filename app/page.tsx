@@ -4,11 +4,13 @@ export default function Home() {
   return (
     <div className="flex flex-1 flex-col items-center justify-center px-[1in] py-24 text-center">
       <h1 className="max-w-2xl text-4xl font-semibold tracking-tight text-[#068e4a] sm:text-5xl">
-        [Placeholder headline about LESCC]
+        A new home for culture, community, and continuity in NYC
       </h1>
       <p className="mt-6 max-w-xl text-lg text-zinc-600 dark:text-zinc-400">
-        [Placeholder intro paragraph — a couple of sentences introducing who
-        we are and what we do.]
+        Our mission is to preserve the Lower East Side’s cultural heritage
+        through year-round programming that supports local artists,
+        families, youth, and community elders, while also providing public
+        access to essential services and concessions.
       </p>
       <div className="mt-10 flex flex-col gap-4 sm:flex-row">
         <Link
