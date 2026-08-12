@@ -140,6 +140,13 @@ export default function Home() {
           </p>
         </div>
 
+        <Link
+          href="/contact"
+          className="text-center text-lg font-semibold text-[#068e4a] transition-colors hover:text-[#057a3f]"
+        >
+          Get in touch!
+        </Link>
+
         <div className="mx-auto w-full sm:w-1/2">
           <h2 className={`${HEADING_CLASS} pb-2 text-center`}>Floor Plans</h2>
           {BLUEPRINTS.map((item) => (
@@ -156,6 +163,19 @@ export default function Home() {
               />
             </div>
           ))}
+        </div>
+
+        <div className="flex flex-col items-center gap-4">
+          <p className="text-lg text-zinc-600 dark:text-zinc-400">
+            Read more here!
+          </p>
+          <a
+            href="/documents/full-proposal.pdf"
+            download="LESCC-Allen-Street-Proposal.pdf"
+            className="rounded-full bg-[#068e4a] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#057a3f]"
+          >
+            Download the full proposal
+          </a>
         </div>
       </div>
     </>
