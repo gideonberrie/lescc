@@ -11,9 +11,6 @@ export default function Footer() {
         </div>
 
         <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-zinc-600 dark:text-zinc-400">
-          <Link href="/mission" className="hover:text-zinc-950 dark:hover:text-zinc-50">
-            Mission
-          </Link>
           <Link href="/press" className="hover:text-zinc-950 dark:hover:text-zinc-50">
             Press
           </Link>

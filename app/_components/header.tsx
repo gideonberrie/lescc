@@ -16,12 +16,6 @@ export default function Header() {
 
           <nav className="flex items-center gap-6 text-sm font-medium">
             <Link
-              href="/mission"
-              className="text-zinc-600 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
-            >
-              Mission
-            </Link>
-            <Link
               href="/press"
               className="text-zinc-600 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
             >
