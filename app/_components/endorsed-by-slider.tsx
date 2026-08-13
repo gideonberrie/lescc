@@ -21,12 +21,12 @@ export default function EndorsedBySlider() {
       <div className="overflow-hidden">
         <div className="flex w-max items-center gap-10 motion-safe:animate-[marquee_25s_linear_infinite]">
           {track.map((logo, i) => (
-            <div key={`${logo.src}-${i}`} className="relative h-16 w-40 shrink-0">
+            <div key={`${logo.src}-${i}`} className="relative h-20 w-[200px] shrink-0">
               <Image
                 src={logo.src}
                 alt={logo.alt}
                 fill
-                sizes="160px"
+                sizes="200px"
                 className="object-contain"
               />
             </div>

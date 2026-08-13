@@ -49,7 +49,7 @@ export default function Home() {
           fill
           className="object-cover opacity-15"
         />
-        <div className="relative flex flex-col items-center px-[0.5in] py-24 text-center">
+        <div className="relative flex flex-col items-center px-[0.5in] py-18 text-center">
           <h1 className="max-w-2xl text-4xl font-semibold tracking-tight text-[#068e4a] sm:text-5xl">
             A new home for culture, community, and continuity in NYC
           </h1>
