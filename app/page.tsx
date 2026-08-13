@@ -97,7 +97,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="-mx-[0.5in] flex flex-col gap-4">
+        <div className="flex flex-col gap-4">
           <h2 className={`${HEADING_CLASS} text-center`}>Context</h2>
           <p className="text-lg text-zinc-600 dark:text-zinc-400">
             Built in the 1930s the comfort station at Allen Street and
@@ -181,7 +181,7 @@ export default function Home() {
           download="LESCC-Allen-Street-Proposal.pdf"
           className="mx-auto rounded-full bg-[#068e4a] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#057a3f]"
         >
-          Read the Full Proposal Here
+          Read the full proposal here
         </a>
       </div>
     </>
