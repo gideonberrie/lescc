@@ -1,14 +1,17 @@
-const PLACEHOLDER_PARTNERS = [
-  "Partner One",
-  "Partner Two",
-  "Partner Three",
-  "Partner Four",
-  "Partner Five",
-  "Partner Six",
+import Image from "next/image";
+
+const LOGOS: { src: string; alt: string }[] = [
+  { src: "/logos/HSS-Logo_Square_Red.png", alt: "Henry Street Settlement" },
+  { src: "/logos/university-settlement.jpg", alt: "University Settlement" },
+  { src: "/logos/TM-logo.jpeg", alt: "Tenement Museum" },
+  { src: "/logos/Loisaida-Center-Logo.png", alt: "The Loisaida Center" },
+  { src: "/logos/les-ecology-center.png", alt: "LES Ecology Center" },
+  { src: "/logos/lesgc-logo.png", alt: "The Lower Eastside Girls Club" },
+  { src: "/logos/porto-rico.jpeg", alt: "Porto Rico Importing Co." },
 ];
 
 export default function EndorsedBySlider() {
-  const track = [...PLACEHOLDER_PARTNERS, ...PLACEHOLDER_PARTNERS];
+  const track = [...LOGOS, ...LOGOS];
 
   return (
     <div>
@@ -16,13 +19,16 @@ export default function EndorsedBySlider() {
         Endorsed by...
       </p>
       <div className="overflow-hidden">
-        <div className="flex w-max gap-10 motion-safe:animate-[marquee_25s_linear_infinite]">
-          {track.map((name, i) => (
-            <div
-              key={`${name}-${i}`}
-              className="flex h-16 w-40 shrink-0 items-center justify-center rounded-lg border border-black/[.08] text-sm text-zinc-500 dark:border-white/[.145] dark:text-zinc-500"
-            >
-              {name}
+        <div className="flex w-max items-center gap-10 motion-safe:animate-[marquee_25s_linear_infinite]">
+          {track.map((logo, i) => (
+            <div key={`${logo.src}-${i}`} className="relative h-16 w-40 shrink-0">
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                fill
+                sizes="160px"
+                className="object-contain"
+              />
             </div>
           ))}
         </div>
