@@ -21,13 +21,6 @@ const PAIRS: { src: string; alt: string }[] = [
   },
 ];
 
-const BLUEPRINTS: { src: string; alt: string }[] = [
-  {
-    src: "/renderings/floor-plans.jpg",
-    alt: "Conceptual floor plans for the main floor and basement",
-  },
-];
-
 const HEADING_CLASS =
   "text-sm font-semibold tracking-wide text-[#068e4a] uppercase";
 
@@ -140,14 +133,9 @@ export default function Home() {
             </strong>{" "}
             — offering low-cost arts education, community storytelling,
             performances, and heritage programming alongside a café and
-            public restroom.
-          </p>
-          <p className="text-lg text-zinc-600 dark:text-zinc-400">
-            The project is backed by community partners including Henry
-            Street Settlement, University Settlement, and the Tenement
-            Museum, and will include artist residencies, a youth workforce
-            program with Emma Lazarus High School, and free and low-cost
-            programming for the neighborhood it serves.
+            public restroom. The project will include artist residencies, a
+            youth workforce program with Emma Lazarus High School, and free
+            and low-cost programming for the neighborhood it serves.
           </p>
         </div>
 
@@ -157,24 +145,6 @@ export default function Home() {
         >
           Get in touch!
         </Link>
-
-        <div className="mx-auto w-full sm:w-1/2">
-          <h2 className={`${HEADING_CLASS} pb-2 text-center`}>Floor Plans</h2>
-          {BLUEPRINTS.map((item) => (
-            <div
-              key={item.src}
-              className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-900"
-            >
-              <Image
-                src={item.src}
-                alt={item.alt}
-                fill
-                sizes="(min-width: 640px) 45vw, 100vw"
-                className="object-contain"
-              />
-            </div>
-          ))}
-        </div>
 
         <a
           href="/documents/full-proposal.pdf"
