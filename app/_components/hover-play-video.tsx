@@ -4,9 +4,11 @@ import { useRef, useState } from "react";
 
 export default function HoverPlayVideo({
   src,
+  poster,
   label,
 }: {
   src: string;
+  poster: string;
   label: string;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -56,6 +58,7 @@ export default function HoverPlayVideo({
       <video
         ref={videoRef}
         src={src}
+        poster={poster}
         loop
         playsInline
         preload="none"
