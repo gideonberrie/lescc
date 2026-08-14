@@ -57,7 +57,7 @@ function BeforeAfterImage({
           alt={item.alt}
           fill
           sizes="(min-width: 640px) 20vw, 45vw"
-          className="scale-95 object-cover"
+          className="scale-85 object-cover"
         />
       </div>
     </div>
@@ -73,8 +73,8 @@ export default function Home() {
         strategy="afterInteractive"
       />
 
-      <section className="flex min-h-screen flex-col overflow-x-hidden">
-        <div className="relative flex flex-1 flex-col items-center justify-center overflow-hidden px-[0.5in] py-6 text-center">
+      <section className="flex h-screen flex-col overflow-x-hidden">
+        <div className="relative flex min-h-0 flex-1 flex-col items-center justify-center overflow-hidden px-[0.5in] py-4 text-center">
           <Image
             src="/renderings/interior-lobby.jpg"
             alt=""
@@ -82,7 +82,7 @@ export default function Home() {
             fill
             className="object-cover opacity-15"
           />
-          <div className="relative flex w-full min-w-0 flex-col items-center gap-5">
+          <div className="relative flex w-full min-w-0 flex-col items-center gap-3">
             <h1 className="max-w-2xl text-3xl font-black tracking-tight text-[#068e4a] sm:text-4xl">
               A new home for culture, community, and continuity in NYC
             </h1>
@@ -92,23 +92,23 @@ export default function Home() {
               artists, families, youth, and community elders, while also
               providing public access to essential services and concessions.
             </p>
-            <div className="flex flex-col gap-4 sm:flex-row">
+            <div className="flex flex-col gap-3 sm:flex-row">
               <a
                 href="#the-building"
-                className="rounded-full bg-foreground px-6 py-3 text-sm font-bold text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc]"
+                className="rounded-full bg-foreground px-6 py-2.5 text-sm font-bold text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc]"
               >
                 See the building
               </a>
               <Link
                 href="/contact"
-                className="rounded-full border border-black/[.08] px-6 py-3 text-sm font-bold transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-white/[.06]"
+                className="rounded-full border border-black/[.08] px-6 py-2.5 text-sm font-bold transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-white/[.06]"
               >
                 Get in touch
               </Link>
             </div>
           </div>
         </div>
-        <div className="w-full bg-white px-[0.5in] py-6 dark:bg-zinc-950">
+        <div className="w-full shrink-0 bg-white px-[0.5in] py-4 dark:bg-zinc-950">
           <EndorsedBySlider />
         </div>
       </section>

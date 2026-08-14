@@ -18,7 +18,16 @@ export default function HoverPlayVideo({
     const video = videoRef.current;
     if (!video) return;
     video.muted = false;
-    video.play();
+    const attempt = video.play();
+    if (attempt && typeof attempt.catch === "function") {
+      attempt.catch(() => {
+        // Browsers block unmuted autoplay from a hover (no user gesture yet
+        // on the page) — fall back to a silent play so it still plays on
+        // hover. Sound kicks in once the visitor has clicked anywhere.
+        video.muted = true;
+        video.play().catch(() => {});
+      });
+    }
     setPlaying(true);
   }
 
