@@ -13,7 +13,10 @@ export default function HoverPlayVideo({
   const [playing, setPlaying] = useState(false);
 
   function play() {
-    videoRef.current?.play();
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = false;
+    video.play();
     setPlaying(true);
   }
 
@@ -48,31 +51,16 @@ export default function HoverPlayVideo({
       }}
       aria-pressed={playing}
       aria-label={`${playing ? "Pause" : "Play"} ${label}`}
-      className="group relative h-full w-full min-w-0 cursor-pointer overflow-hidden bg-zinc-900"
+      className="relative h-full w-full min-w-0 cursor-pointer overflow-hidden bg-zinc-900"
     >
       <video
         ref={videoRef}
         src={src}
-        muted
         loop
         playsInline
         preload="none"
         className="h-full w-full object-cover"
       />
-      <span
-        className={`absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity ${
-          playing ? "opacity-0" : "opacity-100 group-hover:opacity-0"
-        }`}
-      >
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 24 24"
-          className="h-10 w-10 text-white drop-shadow"
-          fill="currentColor"
-        >
-          <path d="M8 5v14l11-7z" />
-        </svg>
-      </span>
     </div>
   );
 }

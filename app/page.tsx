@@ -29,10 +29,10 @@ const FIRST_PAIRS = PAIRS.slice(0, 2);
 const SECOND_PAIRS = PAIRS.slice(2);
 
 const VIDEOS: { src: string; label: string }[] = [
-  { src: "/videos/Vid1.mp4", label: "video 1" },
-  { src: "/videos/vid2.mp4", label: "video 2" },
-  { src: "/videos/vid3.mp4", label: "video 3" },
-  { src: "/videos/vid4.mp4", label: "video 4" },
+  { src: "/videos/vid2.mp4", label: "video 1" },
+  { src: "/videos/vid4.mp4", label: "video 2" },
+  { src: "/videos/Vid1.mp4", label: "video 3" },
+  { src: "/videos/vid3.mp4", label: "video 4" },
 ];
 
 const EYEBROW_CLASS =
@@ -41,16 +41,39 @@ const EYEBROW_CLASS =
 const DONATE_URL =
   "https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-20802";
 
+function BeforeAfterImage({
+  item,
+  label,
+}: {
+  item: { src: string; alt: string };
+  label: string;
+}) {
+  return (
+    <div className="flex flex-col gap-1">
+      <p className={EYEBROW_CLASS}>{label}</p>
+      <div className="relative aspect-square w-full overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-900">
+        <Image
+          src={item.src}
+          alt={item.alt}
+          fill
+          sizes="(min-width: 640px) 20vw, 45vw"
+          className="object-cover"
+        />
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
-    <div className="min-w-0 flex-1 snap-y snap-mandatory overflow-y-auto scroll-smooth">
+    <div className="min-w-0 flex-1 overflow-y-auto scroll-smooth">
       <Script
         src="https://js.arcgis.com/5.1/embeddable-components/"
         type="module"
         strategy="afterInteractive"
       />
 
-      <section className="relative flex h-full snap-start snap-always flex-col items-center justify-center overflow-x-hidden overflow-y-auto px-[0.5in] py-6 text-center">
+      <section className="relative flex min-h-screen flex-col items-center justify-center overflow-x-hidden px-[0.5in] py-6 text-center">
         <Image
           src="/renderings/interior-lobby.jpg"
           alt=""
@@ -82,13 +105,13 @@ export default function Home() {
               Get in touch
             </Link>
           </div>
-          <div className="mt-2 w-full max-w-xl">
+          <div className="mt-2 w-full">
             <EndorsedBySlider />
           </div>
         </div>
       </section>
 
-      <section className="grid h-full w-full shrink-0 snap-start snap-always grid-cols-2 sm:grid-cols-4">
+      <section className="grid min-h-screen w-full grid-cols-2 sm:grid-cols-4">
         {VIDEOS.map((video) => (
           <HoverPlayVideo key={video.src} src={video.src} label={video.label} />
         ))}
@@ -96,12 +119,10 @@ export default function Home() {
 
       <section
         id="the-building"
-        className="flex h-full snap-start snap-always flex-col justify-center gap-3 overflow-x-hidden overflow-y-auto px-[0.5in] py-4 sm:gap-4 sm:py-6"
+        className="flex min-h-screen flex-col justify-center gap-6 overflow-x-hidden px-[0.5in] py-10"
       >
-        <p className={`${EYEBROW_CLASS} text-center`}>Context</p>
-
-        <div className="grid grid-cols-1 items-center gap-4 sm:grid-cols-2">
-          <p className="order-2 text-sm text-zinc-600 sm:order-1 dark:text-zinc-400">
+        <div className="grid grid-cols-1 items-center gap-2 sm:grid-cols-2">
+          <p className="order-2 text-base text-zinc-600 sm:order-1 sm:text-lg dark:text-zinc-400">
             Built in the 1930s the comfort station at Allen Street and
             Delancey Street remained open to the public until the 1950s.{" "}
             <strong className="font-bold">
@@ -110,42 +131,18 @@ export default function Home() {
               making it a concession stand.
             </strong>
           </p>
-          <div className="order-1 ml-auto grid w-full max-w-[200px] grid-cols-2 gap-2 sm:order-2 sm:max-w-xs">
-            {FIRST_PAIRS.map((item) => (
-              <div
-                key={item.src}
-                className="relative aspect-square w-full overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-900"
-              >
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  sizes="150px"
-                  className="object-cover"
-                />
-              </div>
-            ))}
+          <div className="order-1 grid w-full grid-cols-2 gap-2 sm:order-2">
+            <BeforeAfterImage item={FIRST_PAIRS[0]} label="Before" />
+            <BeforeAfterImage item={FIRST_PAIRS[1]} label="After" />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 items-center gap-4 sm:grid-cols-2">
-          <div className="mr-auto grid w-full max-w-[200px] grid-cols-2 gap-2 sm:max-w-xs">
-            {SECOND_PAIRS.map((item) => (
-              <div
-                key={item.src}
-                className="relative aspect-square w-full overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-900"
-              >
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  sizes="150px"
-                  className="object-cover"
-                />
-              </div>
-            ))}
+        <div className="grid grid-cols-1 items-center gap-2 sm:grid-cols-2">
+          <div className="grid w-full grid-cols-2 gap-2">
+            <BeforeAfterImage item={SECOND_PAIRS[0]} label="Before" />
+            <BeforeAfterImage item={SECOND_PAIRS[1]} label="After" />
           </div>
-          <p className="text-sm text-zinc-600 dark:text-zinc-400">
+          <p className="text-base text-zinc-600 sm:text-lg dark:text-zinc-400">
             The Lower East Side is experiencing its first sustained decline
             in its artist population in decades and has the highest rate of
             economic inequality in the city.{" "}
@@ -158,7 +155,7 @@ export default function Home() {
           </p>
         </div>
 
-        <p className="mx-auto max-w-2xl text-center text-sm text-zinc-600 dark:text-zinc-400">
+        <p className="mx-auto max-w-2xl text-center text-base text-zinc-600 sm:text-lg dark:text-zinc-400">
           <strong className="font-bold">
             We propose to renovate the building into a multidisciplinary
             cultural hub
@@ -179,7 +176,7 @@ export default function Home() {
         </a>
       </section>
 
-      <section className="flex h-full snap-start snap-always items-center overflow-x-hidden overflow-y-auto bg-[#068e4a] px-[0.5in] py-6 text-zinc-50">
+      <section className="flex min-h-screen items-center overflow-x-hidden bg-[#068e4a] px-[0.5in] py-6 text-zinc-50">
         <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-8 sm:flex-row sm:justify-center">
           <ArcgisEmbeddedMap
             height="clamp(220px, 40vh, 380px)"
@@ -206,7 +203,7 @@ export default function Home() {
 
       <section
         id="get-involved"
-        className="flex h-full snap-start snap-always flex-col items-center justify-center gap-10 overflow-x-hidden overflow-y-auto bg-white px-[0.5in] py-6 text-center dark:bg-zinc-950"
+        className="flex min-h-screen flex-col items-center justify-center gap-10 overflow-x-hidden bg-white px-[0.5in] py-6 text-center dark:bg-zinc-950"
       >
         <div className="flex flex-col items-center gap-4">
           <p className={EYEBROW_CLASS}>Get Involved</p>
