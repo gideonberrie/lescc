@@ -18,7 +18,7 @@ export default function ResourcesPage() {
         strategy="afterInteractive"
       />
 
-      <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+      <h1 className="text-3xl font-black tracking-tight sm:text-4xl">
         Resources
       </h1>
 

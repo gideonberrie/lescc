@@ -15,13 +15,13 @@ export default function EndorsedBySlider() {
 
   return (
     <div>
-      <p className="mb-4 text-center text-sm font-medium text-zinc-500 dark:text-zinc-500">
+      <p className="mb-2 text-center text-xs font-bold text-zinc-500 dark:text-zinc-500">
         Endorsed by...
       </p>
       <div className="overflow-hidden">
-        <div className="flex w-max items-center gap-10 motion-safe:animate-[marquee_25s_linear_infinite]">
+        <div className="flex w-max items-center gap-8 motion-safe:animate-[marquee_25s_linear_infinite]">
           {track.map((logo, i) => (
-            <div key={`${logo.src}-${i}`} className="relative h-20 w-[200px] shrink-0">
+            <div key={`${logo.src}-${i}`} className="relative h-14 w-[150px] shrink-0">
               <Image
                 src={logo.src}
                 alt={logo.alt}

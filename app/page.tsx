@@ -1,6 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import EndorsedBySlider from "@/app/_components/endorsed-by-slider";
+import HoverPlayVideo from "@/app/_components/hover-play-video";
+import ArcgisEmbeddedMap from "@/app/_components/arcgis-embedded-map";
+import NewsletterSignup from "@/app/_components/newsletter-signup";
 
 const PAIRS: { src: string; alt: string }[] = [
   {
@@ -21,13 +25,32 @@ const PAIRS: { src: string; alt: string }[] = [
   },
 ];
 
-const HEADING_CLASS =
-  "text-sm font-semibold tracking-wide text-[#068e4a] uppercase";
+const FIRST_PAIRS = PAIRS.slice(0, 2);
+const SECOND_PAIRS = PAIRS.slice(2);
+
+const VIDEOS: { src: string; label: string }[] = [
+  { src: "/videos/Vid1.mp4", label: "video 1" },
+  { src: "/videos/vid2.mp4", label: "video 2" },
+  { src: "/videos/vid3.mp4", label: "video 3" },
+  { src: "/videos/vid4.mp4", label: "video 4" },
+];
+
+const EYEBROW_CLASS =
+  "text-xs font-black tracking-wide text-[#068e4a] uppercase";
+
+const DONATE_URL =
+  "https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-20802";
 
 export default function Home() {
   return (
-    <>
-      <div className="relative overflow-hidden">
+    <div className="min-w-0 flex-1 snap-y snap-mandatory overflow-y-auto scroll-smooth">
+      <Script
+        src="https://js.arcgis.com/5.1/embeddable-components/"
+        type="module"
+        strategy="afterInteractive"
+      />
+
+      <section className="relative flex h-full snap-start snap-always flex-col items-center justify-center overflow-x-hidden overflow-y-auto px-[0.5in] py-6 text-center">
         <Image
           src="/renderings/interior-lobby.jpg"
           alt=""
@@ -35,54 +58,69 @@ export default function Home() {
           fill
           className="object-cover opacity-15"
         />
-        <div className="relative flex flex-col items-center px-[0.5in] py-18 text-center">
-          <h1 className="max-w-2xl text-4xl font-semibold tracking-tight text-[#068e4a] sm:text-5xl">
+        <div className="relative flex w-full min-w-0 flex-col items-center gap-5">
+          <h1 className="max-w-2xl text-3xl font-black tracking-tight text-[#068e4a] sm:text-4xl">
             A new home for culture, community, and continuity in NYC
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-zinc-600 dark:text-zinc-400">
-            Our mission is to preserve the Lower East Side’s cultural
+          <p className="max-w-xl text-base text-zinc-600 dark:text-zinc-400">
+            Our mission is to preserve the Lower East Side&rsquo;s cultural
             heritage through year-round programming that supports local
             artists, families, youth, and community elders, while also
             providing public access to essential services and concessions.
           </p>
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <Link
+          <div className="flex flex-col gap-4 sm:flex-row">
+            <a
               href="#the-building"
-              className="rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc]"
+              className="rounded-full bg-foreground px-6 py-3 text-sm font-bold text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc]"
             >
               See the building
-            </Link>
+            </a>
             <Link
-              href="/press"
-              className="rounded-full border border-black/[.08] px-6 py-3 text-sm font-medium transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-white/[.06]"
+              href="/contact"
+              className="rounded-full border border-black/[.08] px-6 py-3 text-sm font-bold transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-white/[.06]"
             >
-              Latest press
+              Get in touch
             </Link>
+          </div>
+          <div className="mt-2 w-full max-w-xl">
+            <EndorsedBySlider />
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="px-[0.5in] pt-8">
-        <EndorsedBySlider />
-      </div>
+      <section className="grid h-full w-full shrink-0 snap-start snap-always grid-cols-2 sm:grid-cols-4">
+        {VIDEOS.map((video) => (
+          <HoverPlayVideo key={video.src} src={video.src} label={video.label} />
+        ))}
+      </section>
 
-      <div id="the-building" className="flex flex-col gap-8 px-[0.5in] pt-8 pb-24">
-        <div className="mx-auto w-full sm:w-1/2">
-          <div className="grid grid-cols-1 gap-8 pb-2 sm:grid-cols-2">
-            <p className={HEADING_CLASS}>Before</p>
-            <p className={HEADING_CLASS}>After</p>
-          </div>
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-            {PAIRS.map((item) => (
+      <section
+        id="the-building"
+        className="flex h-full snap-start snap-always flex-col justify-center gap-3 overflow-x-hidden overflow-y-auto px-[0.5in] py-4 sm:gap-4 sm:py-6"
+      >
+        <p className={`${EYEBROW_CLASS} text-center`}>Context</p>
+
+        <div className="grid grid-cols-1 items-center gap-4 sm:grid-cols-2">
+          <p className="order-2 text-sm text-zinc-600 sm:order-1 dark:text-zinc-400">
+            Built in the 1930s the comfort station at Allen Street and
+            Delancey Street remained open to the public until the 1950s.{" "}
+            <strong className="font-bold">
+              Since then the building has sat vacant and boarded up. Now
+              Parks has opened the door for new development, with the aim of
+              making it a concession stand.
+            </strong>
+          </p>
+          <div className="order-1 ml-auto grid w-full max-w-[200px] grid-cols-2 gap-2 sm:order-2 sm:max-w-xs">
+            {FIRST_PAIRS.map((item) => (
               <div
                 key={item.src}
-                className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-900"
+                className="relative aspect-square w-full overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-900"
               >
                 <Image
                   src={item.src}
                   alt={item.alt}
                   fill
-                  sizes="(min-width: 640px) 23vw, 100vw"
+                  sizes="150px"
                   className="object-cover"
                 />
               </div>
@@ -90,70 +128,139 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4">
-          <h2 className={`${HEADING_CLASS} text-center`}>Context</h2>
-          <p className="text-lg text-zinc-600 dark:text-zinc-400">
-            Built in the 1930s the comfort station at Allen Street and
-            Delancey Street remained open to the public until the 1950s.{" "}
-            <strong className="font-semibold">
-              Since then the building has sat vacant and boarded up. Now
-              Parks has opened the door for new development, with the aim
-              of making it a concession stand.
-            </strong>{" "}
-            As one of the most storied neighborhoods in NYC changes, we
-            think it&apos;s important to memorialize its history while
-            serving the often overlooked long-term residents. The Lower
-            East Side Cultural center,{" "}
-            <strong className="font-semibold">
-              in partnership with Porto Rico Importing Co.
-            </strong>
-            , would bring high quality concessions while enhancing the
-            neighborhoods cultural footprint and delivering essential
-            services to its residents.
-          </p>
-          <p className="text-lg text-zinc-600 dark:text-zinc-400">
+        <div className="grid grid-cols-1 items-center gap-4 sm:grid-cols-2">
+          <div className="mr-auto grid w-full max-w-[200px] grid-cols-2 gap-2 sm:max-w-xs">
+            {SECOND_PAIRS.map((item) => (
+              <div
+                key={item.src}
+                className="relative aspect-square w-full overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-900"
+              >
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  sizes="150px"
+                  className="object-cover"
+                />
+              </div>
+            ))}
+          </div>
+          <p className="text-sm text-zinc-600 dark:text-zinc-400">
             The Lower East Side is experiencing its first sustained decline
             in its artist population in decades and has the highest rate of
             economic inequality in the city.{" "}
-            <strong className="font-semibold">
+            <strong className="font-bold">
               Rising rents and ongoing gentrification have left long-term,
               lower-income, and immigrant residents with fewer places to
               gather, and small arts organizations with fewer places to
               work.
-            </strong>{" "}
-            Residents consistently point to the same needs: affordable
-            cultural programming, intergenerational gathering space, free
-            or low-cost arts education, and accessible venues for
-            neighborhood traditions.
-          </p>
-          <p className="text-lg text-zinc-600 dark:text-zinc-400">
-            <strong className="font-semibold">
-              We propose to renovate the building into a multidisciplinary
-              cultural hub
-            </strong>{" "}
-            — offering low-cost arts education, community storytelling,
-            performances, and heritage programming alongside a café and
-            public restroom. The project will include artist residencies, a
-            youth workforce program with Emma Lazarus High School, and free
-            and low-cost programming for the neighborhood it serves.
+            </strong>
           </p>
         </div>
 
-        <Link
-          href="/contact"
-          className="mx-auto rounded-full bg-black px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-[#1a1a1a]"
-        >
-          Get in touch!
-        </Link>
+        <p className="mx-auto max-w-2xl text-center text-sm text-zinc-600 dark:text-zinc-400">
+          <strong className="font-bold">
+            We propose to renovate the building into a multidisciplinary
+            cultural hub
+          </strong>{" "}
+          — offering low-cost arts education, community storytelling,
+          performances, and heritage programming alongside a café and public
+          restroom. The project will include artist residencies, a youth
+          workforce program with Emma Lazarus High School, and free and
+          low-cost programming for the neighborhood it serves.
+        </p>
 
         <a
           href="/documents/full-proposal.pdf"
           download="LESCC-Allen-Street-Proposal.pdf"
-          className="mx-auto rounded-full bg-[#068e4a] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#057a3f]"
+          className="mx-auto rounded-full bg-[#068e4a] px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-[#057a3f]"
         >
           Read the full proposal here
         </a>
-      </div>
-    </>
+      </section>
+
+      <section className="flex h-full snap-start snap-always items-center overflow-x-hidden overflow-y-auto bg-[#068e4a] px-[0.5in] py-6 text-zinc-50">
+        <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-8 sm:flex-row sm:justify-center">
+          <ArcgisEmbeddedMap
+            height="clamp(220px, 40vh, 380px)"
+            width="clamp(220px, 70vw, 420px)"
+            className="max-w-full shrink-0 overflow-hidden rounded-lg"
+          />
+          <div className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-left">
+            <p className="max-w-sm text-lg">
+              [Placeholder text about the building&rsquo;s location, the
+              surrounding neighborhood, and why this corner of the Lower
+              East Side matters.]
+            </p>
+            <a
+              href={DONATE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-white px-6 py-3 text-sm font-bold text-[#068e4a] transition-colors hover:bg-zinc-100"
+            >
+              Donate
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="get-involved"
+        className="flex h-full snap-start snap-always flex-col items-center justify-center gap-10 overflow-x-hidden overflow-y-auto bg-white px-[0.5in] py-6 text-center dark:bg-zinc-950"
+      >
+        <div className="flex flex-col items-center gap-4">
+          <p className={EYEBROW_CLASS}>Get Involved</p>
+          <div className="flex flex-col items-center gap-4 sm:flex-row">
+            <a
+              href={DONATE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-[#068e4a] px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-[#057a3f]"
+            >
+              Donate
+            </a>
+            <NewsletterSignup />
+          </div>
+        </div>
+
+        <dl className="flex flex-col gap-6 sm:flex-row sm:gap-16">
+          <div className="flex flex-col gap-1">
+            <dt className={EYEBROW_CLASS}>Email</dt>
+            <dd>
+              <a
+                href="mailto:thefreestoreproject@gmail.com"
+                className="text-zinc-600 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
+              >
+                thefreestoreproject@gmail.com
+              </a>
+            </dd>
+          </div>
+          <div className="flex flex-col gap-1">
+            <dt className={EYEBROW_CLASS}>Instagram</dt>
+            <dd>
+              <a
+                href="https://www.instagram.com/thefreestoreproject/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-600 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
+              >
+                @thefreestoreproject
+              </a>
+            </dd>
+          </div>
+          <div className="flex flex-col gap-1">
+            <dt className={EYEBROW_CLASS}>Phone</dt>
+            <dd>
+              <a
+                href="tel:+13477388298"
+                className="text-zinc-600 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
+              >
+                347.738.8298
+              </a>
+            </dd>
+          </div>
+        </dl>
+      </section>
+    </div>
   );
 }
