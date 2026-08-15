@@ -79,7 +79,7 @@ export default function Home() {
         />
         <div className="relative flex w-full min-w-0 flex-col items-center gap-3">
           <h1 className="max-w-2xl text-3xl font-black tracking-tight text-[#068e4a] sm:text-4xl">
-            A new home for culture, community, and continuity in NYC
+            A new home for culture, preservation, and coffee
           </h1>
           <p className="max-w-xl text-base text-zinc-600 dark:text-zinc-400">
             Our mission is to preserve the Lower East Side&rsquo;s cultural
