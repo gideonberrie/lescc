@@ -174,18 +174,13 @@ export default function Home() {
         </a>
       </section>
 
-      <section className="flex min-h-screen items-center overflow-x-hidden bg-[#068e4a] px-[0.5in] py-6 text-zinc-50">
-        <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-8 sm:flex-row sm:justify-center">
-          <ArcgisEmbeddedMap
-            height="clamp(220px, 45vh, 500px)"
-            className="w-full max-w-[420px] shrink-0 overflow-hidden rounded-lg"
-          />
-          <div className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-left">
-            <p className="max-w-sm text-lg">
-              [Placeholder text about the building&rsquo;s location, the
-              surrounding neighborhood, and why this corner of the Lower
-              East Side matters.]
-            </p>
+      <section className="flex min-h-screen flex-col overflow-x-hidden bg-[#068e4a] text-zinc-50 sm:flex-row">
+        <ArcgisEmbeddedMap className="h-[50vh] w-full sm:h-auto sm:w-1/2" />
+        <div className="flex w-full flex-col items-center justify-center gap-4 px-[0.5in] py-10 text-center sm:w-1/2 sm:items-start sm:text-left">
+          <p className="max-w-sm text-lg">
+            But to make this a reality, we need your help!
+          </p>
+          <div className="flex gap-4">
             <a
               href={DONATE_URL}
               target="_blank"
@@ -194,6 +189,12 @@ export default function Home() {
             >
               Donate
             </a>
+            <Link
+              href="/contact"
+              className="rounded-full border border-white/60 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white/10"
+            >
+              Get in touch
+            </Link>
           </div>
         </div>
       </section>
