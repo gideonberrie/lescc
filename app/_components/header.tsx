@@ -1,14 +1,20 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
-function NavLinks() {
+function NavLinks({
+  onLogoClick,
+}: {
+  onLogoClick: (e: React.MouseEvent) => void;
+}) {
   return (
     <>
       <Link
         href="/"
+        onClick={onLogoClick}
         className="text-lg font-black tracking-tight text-[#068e4a]"
       >
         Lower East Side Cultural Center
@@ -20,12 +26,6 @@ function NavLinks() {
           className="text-zinc-600 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
         >
           Press
-        </Link>
-        <Link
-          href="/resources"
-          className="text-zinc-600 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
-        >
-          Resources
         </Link>
       </nav>
     </>
@@ -59,7 +59,7 @@ function ActionLinks() {
         href="/#get-involved"
         className="rounded-full border border-black/[.08] px-4 py-2 text-sm font-bold transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-white/[.06]"
       >
-        Get Involved
+        Get in touch
       </Link>
       <Link
         href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-20802"
@@ -75,16 +75,31 @@ function ActionLinks() {
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  function handleLogoClick(e: React.MouseEvent) {
+    if (pathname === "/") {
+      e.preventDefault();
+      document
+        .getElementById("home-scroll")
+        ?.scrollTo({ top: 0, behavior: "smooth" });
+      setOpen(false);
+    }
+  }
 
   return (
     <header className="border-b border-black/[.08] dark:border-white/[.145]">
       {/* Desktop / tablet: single row */}
       <div className="mx-auto hidden max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-4 px-[0.5in] py-4 sm:grid">
         <div className="flex items-center gap-6">
-          <NavLinks />
+          <NavLinks onLogoClick={handleLogoClick} />
         </div>
 
-        <Link href="/" className="relative h-14 w-36 justify-self-center">
+        <Link
+          href="/"
+          onClick={handleLogoClick}
+          className="relative h-14 w-36 justify-self-center"
+        >
           <Image
             src="/logo.png"
             alt="LESCC logo"
@@ -103,7 +118,11 @@ export default function Header() {
       {/* Mobile: compact bar + toggleable menu */}
       <div className="sm:hidden">
         <div className="flex items-center justify-between px-4 py-3">
-          <Link href="/" className="relative h-10 w-28 shrink-0">
+          <Link
+            href="/"
+            onClick={handleLogoClick}
+            className="relative h-10 w-28 shrink-0"
+          >
             <Image
               src="/logo.png"
               alt="LESCC logo"
@@ -139,7 +158,7 @@ export default function Header() {
 
         {open && (
           <div className="flex flex-col items-center gap-4 border-t border-black/[.08] px-4 py-4 dark:border-white/[.145]">
-            <NavLinks />
+            <NavLinks onLogoClick={handleLogoClick} />
             <div className="flex flex-wrap items-center justify-center gap-3">
               <ActionLinks />
             </div>

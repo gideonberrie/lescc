@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import EndorsedBySlider from "@/app/_components/endorsed-by-slider";
 import HoverPlayVideo from "@/app/_components/hover-play-video";
 import { SoundProvider } from "@/app/_components/sound-context";
@@ -67,7 +66,10 @@ function BeforeAfterImage({
 
 export default function Home() {
   return (
-    <div className="min-w-0 flex-1 overflow-y-auto overscroll-y-contain scroll-smooth">
+    <div
+      id="home-scroll"
+      className="min-w-0 flex-1 overflow-y-auto overscroll-y-contain scroll-smooth"
+    >
       <section className="relative flex h-screen flex-col items-center justify-center overflow-hidden px-[0.5in] py-4 text-center">
         <Image
           src="/renderings/interior-lobby.jpg"
@@ -93,12 +95,12 @@ export default function Home() {
             >
               See the building
             </a>
-            <Link
-              href="/contact"
+            <a
+              href="#get-involved"
               className="rounded-full border border-black/[.08] px-6 py-2.5 text-sm font-bold transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-white/[.06]"
             >
               Get in touch
-            </Link>
+            </a>
           </div>
           <div className="mt-2 w-full">
             <EndorsedBySlider />
@@ -194,12 +196,12 @@ export default function Home() {
             >
               Donate
             </a>
-            <Link
-              href="/contact"
+            <a
+              href="#get-involved"
               className="rounded-full border border-white/60 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white/10"
             >
               Get in touch
-            </Link>
+            </a>
           </div>
         </div>
       </section>
