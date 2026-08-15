@@ -39,7 +39,17 @@ export default function HoverPlayVideo({
     setPlaying(false);
   }
 
-  function toggle() {
+  function handleClick() {
+    const video = videoRef.current;
+    if (!video) return;
+    if (playing && video.muted) {
+      // Already playing silently because the browser blocked unmuted
+      // autoplay on hover — a click is a real user gesture, so unmute and
+      // keep playing instead of stopping it.
+      video.muted = false;
+      video.play().catch(() => {});
+      return;
+    }
     if (playing) {
       stop();
     } else {
@@ -53,11 +63,11 @@ export default function HoverPlayVideo({
       tabIndex={0}
       onMouseEnter={play}
       onMouseLeave={stop}
-      onClick={toggle}
+      onClick={handleClick}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
-          toggle();
+          handleClick();
         }
       }}
       aria-pressed={playing}

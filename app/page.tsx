@@ -51,13 +51,13 @@ function BeforeAfterImage({
   return (
     <div className="flex flex-col gap-1">
       <p className={EYEBROW_CLASS}>{label}</p>
-      <div className="relative aspect-square w-full overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-900">
+      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-900">
         <Image
           src={item.src}
           alt={item.alt}
           fill
           sizes="(min-width: 640px) 20vw, 45vw"
-          className="scale-85 object-cover"
+          className="object-cover"
         />
       </div>
     </div>
@@ -73,43 +73,41 @@ export default function Home() {
         strategy="afterInteractive"
       />
 
-      <section className="flex h-screen flex-col overflow-x-hidden">
-        <div className="relative flex min-h-0 flex-1 flex-col items-center justify-center overflow-hidden px-[0.5in] py-4 text-center">
-          <Image
-            src="/renderings/interior-lobby.jpg"
-            alt=""
-            aria-hidden="true"
-            fill
-            className="object-cover opacity-15"
-          />
-          <div className="relative flex w-full min-w-0 flex-col items-center gap-3">
-            <h1 className="max-w-2xl text-3xl font-black tracking-tight text-[#068e4a] sm:text-4xl">
-              A new home for culture, community, and continuity in NYC
-            </h1>
-            <p className="max-w-xl text-base text-zinc-600 dark:text-zinc-400">
-              Our mission is to preserve the Lower East Side&rsquo;s cultural
-              heritage through year-round programming that supports local
-              artists, families, youth, and community elders, while also
-              providing public access to essential services and concessions.
-            </p>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <a
-                href="#the-building"
-                className="rounded-full bg-foreground px-6 py-2.5 text-sm font-bold text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc]"
-              >
-                See the building
-              </a>
-              <Link
-                href="/contact"
-                className="rounded-full border border-black/[.08] px-6 py-2.5 text-sm font-bold transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-white/[.06]"
-              >
-                Get in touch
-              </Link>
-            </div>
+      <section className="relative flex h-screen flex-col items-center justify-center overflow-hidden px-[0.5in] py-4 text-center">
+        <Image
+          src="/renderings/interior-lobby.jpg"
+          alt=""
+          aria-hidden="true"
+          fill
+          className="object-cover opacity-15"
+        />
+        <div className="relative flex w-full min-w-0 flex-col items-center gap-3">
+          <h1 className="max-w-2xl text-3xl font-black tracking-tight text-[#068e4a] sm:text-4xl">
+            A new home for culture, community, and continuity in NYC
+          </h1>
+          <p className="max-w-xl text-base text-zinc-600 dark:text-zinc-400">
+            Our mission is to preserve the Lower East Side&rsquo;s cultural
+            heritage through year-round programming that supports local
+            artists, families, youth, and community elders, while also
+            providing public access to essential services and concessions.
+          </p>
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <a
+              href="#the-building"
+              className="rounded-full bg-foreground px-6 py-2.5 text-sm font-bold text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc]"
+            >
+              See the building
+            </a>
+            <Link
+              href="/contact"
+              className="rounded-full border border-black/[.08] px-6 py-2.5 text-sm font-bold transition-colors hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-white/[.06]"
+            >
+              Get in touch
+            </Link>
           </div>
-        </div>
-        <div className="w-full shrink-0 bg-white px-[0.5in] py-4 dark:bg-zinc-950">
-          <EndorsedBySlider />
+          <div className="mt-2 w-full">
+            <EndorsedBySlider />
+          </div>
         </div>
       </section>
 
