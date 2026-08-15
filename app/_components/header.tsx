@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import TranslateButton from "@/app/_components/translate-button";
 
 function NavLinks() {
   return (
@@ -70,7 +69,6 @@ function ActionLinks() {
       >
         Donate
       </Link>
-      <TranslateButton />
     </>
   );
 }
