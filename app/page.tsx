@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import EndorsedBySlider from "@/app/_components/endorsed-by-slider";
 import HoverPlayVideo from "@/app/_components/hover-play-video";
+import { SoundProvider } from "@/app/_components/sound-context";
+import SoundToggleButton from "@/app/_components/sound-toggle-button";
 import ArcgisEmbeddedMap from "@/app/_components/arcgis-embedded-map";
 import NewsletterSignup from "@/app/_components/newsletter-signup";
 
@@ -65,7 +67,7 @@ function BeforeAfterImage({
 
 export default function Home() {
   return (
-    <div className="min-w-0 flex-1 overflow-y-auto scroll-smooth">
+    <div className="min-w-0 flex-1 overflow-y-auto overscroll-y-contain scroll-smooth">
       <section className="relative flex h-screen flex-col items-center justify-center overflow-hidden px-[0.5in] py-4 text-center">
         <Image
           src="/renderings/interior-lobby.jpg"
@@ -104,16 +106,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="grid min-h-screen w-full grid-cols-2 sm:grid-cols-4">
-        {VIDEOS.map((video) => (
-          <HoverPlayVideo
-            key={video.src}
-            src={video.src}
-            poster={video.poster}
-            label={video.label}
-          />
-        ))}
-      </section>
+      <SoundProvider>
+        <section className="relative grid min-h-screen w-full grid-cols-2 sm:grid-cols-4">
+          <SoundToggleButton />
+          {VIDEOS.map((video) => (
+            <HoverPlayVideo
+              key={video.src}
+              src={video.src}
+              poster={video.poster}
+              label={video.label}
+            />
+          ))}
+        </section>
+      </SoundProvider>
 
       <section
         id="the-building"

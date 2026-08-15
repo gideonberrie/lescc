@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useSound } from "@/app/_components/sound-context";
 
 export default function HoverPlayVideo({
   src,
@@ -12,47 +13,28 @@ export default function HoverPlayVideo({
   label: string;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const wantsPlayRef = useRef(false);
   const [playing, setPlaying] = useState(false);
+  const { enabled: soundEnabled } = useSound();
 
   useEffect(() => {
-    // Browsers never treat "hover" as a user gesture, so unmuted autoplay
-    // from a hover is blocked until the visitor has clicked *somewhere* on
-    // the page. Catch the very first click anywhere and use it to unmute
-    // whatever's currently playing silently, instead of requiring the
-    // click to land on this specific tile.
-    function unlockSound() {
-      const video = videoRef.current;
-      if (video && !video.paused && video.muted) {
-        video.muted = false;
-        video.play().catch(() => {});
-      }
-    }
-    document.addEventListener("click", unlockSound, { once: true });
-    return () => document.removeEventListener("click", unlockSound);
-  }, []);
+    const video = videoRef.current;
+    if (!video || !playing) return;
+    // Clicking the sound toggle is a real user gesture, so a video that's
+    // already playing can pick up sound immediately rather than waiting
+    // for the next hover.
+    video.muted = !soundEnabled;
+    if (soundEnabled) video.play().catch(() => {});
+  }, [soundEnabled, playing]);
 
   function play() {
     const video = videoRef.current;
     if (!video) return;
-    wantsPlayRef.current = true;
-    video.muted = false;
-    const attempt = video.play();
-    if (attempt && typeof attempt.catch === "function") {
-      attempt.catch(() => {
-        if (!wantsPlayRef.current) return;
-        // Unmuted autoplay was blocked — fall back to a silent play so it
-        // still plays on hover. Sound kicks in once the visitor clicks
-        // anywhere on the page (see the effect above).
-        video.muted = true;
-        video.play().catch(() => {});
-      });
-    }
+    video.muted = !soundEnabled;
+    video.play().catch(() => {});
     setPlaying(true);
   }
 
   function stop() {
-    wantsPlayRef.current = false;
     const video = videoRef.current;
     if (!video) return;
     video.pause();
@@ -61,16 +43,6 @@ export default function HoverPlayVideo({
   }
 
   function handleClick() {
-    const video = videoRef.current;
-    if (!video) return;
-    if (playing && video.muted) {
-      // Already playing silently because the browser blocked unmuted
-      // autoplay on hover — a click is a real user gesture, so unmute and
-      // keep playing instead of stopping it.
-      video.muted = false;
-      video.play().catch(() => {});
-      return;
-    }
     if (playing) {
       stop();
     } else {
