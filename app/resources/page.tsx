@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Script from "next/script";
 import ArcgisEmbeddedMap from "@/app/_components/arcgis-embedded-map";
 import EndorsedBySlider from "@/app/_components/endorsed-by-slider";
 
@@ -12,12 +11,6 @@ export const metadata: Metadata = {
 export default function ResourcesPage() {
   return (
     <div className="w-full px-[0.5in] py-20">
-      <Script
-        src="https://js.arcgis.com/5.1/embeddable-components/"
-        type="module"
-        strategy="afterInteractive"
-      />
-
       <h1 className="text-3xl font-black tracking-tight sm:text-4xl">
         Resources
       </h1>

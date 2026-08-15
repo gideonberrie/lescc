@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 import EndorsedBySlider from "@/app/_components/endorsed-by-slider";
 import HoverPlayVideo from "@/app/_components/hover-play-video";
 import ArcgisEmbeddedMap from "@/app/_components/arcgis-embedded-map";
@@ -67,12 +66,6 @@ function BeforeAfterImage({
 export default function Home() {
   return (
     <div className="min-w-0 flex-1 overflow-y-auto scroll-smooth">
-      <Script
-        src="https://js.arcgis.com/5.1/embeddable-components/"
-        type="module"
-        strategy="afterInteractive"
-      />
-
       <section className="relative flex h-screen flex-col items-center justify-center overflow-hidden px-[0.5in] py-4 text-center">
         <Image
           src="/renderings/interior-lobby.jpg"
@@ -184,9 +177,8 @@ export default function Home() {
       <section className="flex min-h-screen items-center overflow-x-hidden bg-[#068e4a] px-[0.5in] py-6 text-zinc-50">
         <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-8 sm:flex-row sm:justify-center">
           <ArcgisEmbeddedMap
-            height="clamp(220px, 40vh, 380px)"
-            width="clamp(220px, 70vw, 420px)"
-            className="max-w-full shrink-0 overflow-hidden rounded-lg"
+            height="clamp(220px, 45vh, 500px)"
+            className="w-full max-w-[420px] shrink-0 overflow-hidden rounded-lg"
           />
           <div className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-left">
             <p className="max-w-sm text-lg">
