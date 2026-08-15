@@ -38,8 +38,7 @@ const VIDEOS: { src: string; poster: string; label: string }[] = [
 const EYEBROW_CLASS =
   "text-xs font-black tracking-wide text-[#068e4a] uppercase";
 
-const DONATE_URL =
-  "https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-20802";
+const DONATE_URL = "https://givebutter.com/LESculturalcenter";
 
 function BeforeAfterImage({
   item,

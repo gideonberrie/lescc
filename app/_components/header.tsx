@@ -62,7 +62,7 @@ function ActionLinks() {
         Get in touch
       </Link>
       <Link
-        href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-20802"
+        href="https://givebutter.com/LESculturalcenter"
         target="_blank"
         rel="noopener noreferrer"
         className="rounded-full bg-[#068e4a] px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-[#057a3f]"

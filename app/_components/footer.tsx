@@ -18,7 +18,7 @@ export default function Footer() {
             Get Involved
           </Link>
           <Link
-            href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-20802"
+            href="https://givebutter.com/LESculturalcenter"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-zinc-950 dark:hover:text-zinc-50"
