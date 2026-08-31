@@ -127,7 +127,7 @@ export default function Home() {
       >
         <div className="grid grid-cols-1 items-center gap-6 sm:grid-cols-2 sm:gap-x-[0.5in]">
           <p className="order-2 text-lg text-zinc-600 sm:order-1 sm:text-xl dark:text-zinc-400">
-            Built in the 1930s the comfort station at Allen Street and
+            Built in the 1930s the public restroom at Allen Street and
             Delancey Street remained open to the public until the 1950s.{" "}
             <strong className="font-bold">
               Since then the building has sat vacant and boarded up. Now
