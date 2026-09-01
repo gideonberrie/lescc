@@ -231,10 +231,10 @@ export default function Home() {
             <dt className={EYEBROW_CLASS}>Email</dt>
             <dd>
               <a
-                href="mailto:thefreestoreproject@gmail.com"
+                href="mailto:lowereastsideculturalcenter@gmail.com"
                 className="text-zinc-600 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
               >
-                thefreestoreproject@gmail.com
+                lowereastsideculturalcenter@gmail.com
               </a>
             </dd>
           </div>
