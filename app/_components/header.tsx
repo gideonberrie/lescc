@@ -8,68 +8,33 @@ import Link from "next/link";
 const NAV_LINK_CLASS =
   "text-zinc-600 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50";
 
-function NavLinks() {
-  return (
-    <nav className="flex items-center gap-6 text-sm font-bold">
-      <Link href="#" className={NAV_LINK_CLASS}>
-        About
-      </Link>
-      <Link href="#" className={NAV_LINK_CLASS}>
-        Who We Are
-      </Link>
-      <Link href="/press" className={NAV_LINK_CLASS}>
-        Press
-      </Link>
-    </nav>
-  );
-}
-
-function BrandCluster({
+function NavLinks({
   onLogoClick,
-  size = "desktop",
 }: {
   onLogoClick: (e: React.MouseEvent) => void;
-  size?: "desktop" | "mobile";
 }) {
-  // Both marks render at the same height; widths follow each image's aspect ratio.
-  const imgBox =
-    size === "desktop"
-      ? { logo: "h-10 w-24 lg:h-14 lg:w-32", mark: "h-10 w-10 lg:h-14 lg:w-14" }
-      : { logo: "h-8 w-20", mark: "h-8 w-8" };
-  const titleClass =
-    size === "desktop"
-      ? "max-w-[11rem] text-sm font-black leading-tight tracking-tight text-[#068e4a] lg:max-w-none lg:whitespace-nowrap lg:text-lg"
-      : "sr-only";
-
   return (
-    <Link
-      href="/"
-      onClick={onLogoClick}
-      aria-label="Lower East Side Cultural Center — back to top"
-      className="flex items-center justify-self-center gap-3"
-    >
-      <span className={`relative block shrink-0 ${imgBox.logo}`}>
-        <Image
-          src="/logo.png"
-          alt=""
-          fill
-          sizes="144px"
-          className="object-contain"
-          priority
-        />
-      </span>
-      <span className={titleClass}>Lower East Side Cultural Center</span>
-      <span className={`relative block shrink-0 ${imgBox.mark}`}>
-        <Image
-          src="/tables-chairs-logo.png"
-          alt=""
-          fill
-          sizes="56px"
-          className="object-contain"
-          priority
-        />
-      </span>
-    </Link>
+    <>
+      <Link
+        href="/"
+        onClick={onLogoClick}
+        className="text-lg font-black tracking-tight text-[#068e4a]"
+      >
+        Lower East Side Cultural Center
+      </Link>
+
+      <nav className="flex items-center gap-6 text-sm font-bold">
+        <Link href="#" className={NAV_LINK_CLASS}>
+          About
+        </Link>
+        <Link href="#" className={NAV_LINK_CLASS}>
+          Who We Are
+        </Link>
+        <Link href="/press" className={NAV_LINK_CLASS}>
+          Press
+        </Link>
+      </nav>
+    </>
   );
 }
 
@@ -130,13 +95,26 @@ export default function Header() {
 
   return (
     <header className="border-b border-black/[.08] dark:border-white/[.145]">
-      {/* Desktop / tablet: single row — nav | brand cluster | actions */}
+      {/* Desktop / tablet: single row */}
       <div className="mx-auto hidden max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-4 px-[0.5in] py-4 sm:grid">
-        <div className="flex items-center justify-self-start">
-          <NavLinks />
+        <div className="flex items-center gap-6">
+          <NavLinks onLogoClick={handleLogoClick} />
         </div>
 
-        <BrandCluster onLogoClick={handleLogoClick} />
+        <Link
+          href="/"
+          onClick={handleLogoClick}
+          className="relative h-14 w-36 justify-self-center"
+        >
+          <Image
+            src="/logo.png"
+            alt="LESCC logo"
+            fill
+            sizes="144px"
+            className="object-contain"
+            priority
+          />
+        </Link>
 
         <div className="flex items-center justify-self-end gap-3">
           <ActionLinks />
@@ -146,7 +124,20 @@ export default function Header() {
       {/* Mobile: compact bar + toggleable menu */}
       <div className="sm:hidden">
         <div className="flex items-center justify-between px-4 py-3">
-          <BrandCluster onLogoClick={handleLogoClick} size="mobile" />
+          <Link
+            href="/"
+            onClick={handleLogoClick}
+            className="relative h-10 w-28 shrink-0"
+          >
+            <Image
+              src="/logo.png"
+              alt="LESCC logo"
+              fill
+              sizes="112px"
+              className="object-contain"
+              priority
+            />
+          </Link>
           <button
             type="button"
             onClick={() => setOpen((prev) => !prev)}
@@ -173,14 +164,7 @@ export default function Header() {
 
         {open && (
           <div className="flex flex-col items-center gap-4 border-t border-black/[.08] px-4 py-4 dark:border-white/[.145]">
-            <Link
-              href="/"
-              onClick={handleLogoClick}
-              className="text-lg font-black tracking-tight text-[#068e4a]"
-            >
-              Lower East Side Cultural Center
-            </Link>
-            <NavLinks />
+            <NavLinks onLogoClick={handleLogoClick} />
             <div className="flex flex-wrap items-center justify-center gap-3">
               <ActionLinks />
             </div>
