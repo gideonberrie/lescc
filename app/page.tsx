@@ -1,5 +1,6 @@
 import Image from "next/image";
 import EndorsedBySlider from "@/app/_components/endorsed-by-slider";
+import EndorsedByGrid from "@/app/_components/endorsed-by-grid";
 import HoverPlayVideo from "@/app/_components/hover-play-video";
 import { SoundProvider } from "@/app/_components/sound-context";
 import SoundToggleButton from "@/app/_components/sound-toggle-button";
@@ -91,10 +92,12 @@ export default function Home() {
           </p>
           <div className="flex flex-col gap-3 sm:flex-row">
             <a
-              href="#the-building"
+              href="/documents/full-proposal.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full bg-foreground px-6 py-2.5 text-sm font-bold text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc]"
             >
-              See the building
+              See our plan
             </a>
             <a
               href="#get-involved"
@@ -173,21 +176,29 @@ export default function Home() {
           low-cost programming for the neighborhood it serves.
         </p>
 
-        <a
-          href="/documents/full-proposal.pdf"
-          download="LESCC-Allen-Street-Proposal.pdf"
-          className="mx-auto rounded-full bg-[#068e4a] px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-[#057a3f]"
-        >
-          Read the full proposal here
-        </a>
+        <div className="mx-auto flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <a
+            href="/documents/full-proposal.pdf"
+            download="LESCC-Allen-Street-Proposal.pdf"
+            className="rounded-full bg-foreground px-6 py-3 text-sm font-bold text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc]"
+          >
+            Read the full proposal here
+          </a>
+          <a
+            href={DONATE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full bg-[#068e4a] px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-[#057a3f]"
+          >
+            Support our mission
+          </a>
+        </div>
       </section>
 
       <section className="flex min-h-screen flex-col overflow-x-hidden bg-[#068e4a] text-zinc-50 sm:flex-row">
         <ArcgisEmbeddedMap className="h-[50vh] w-full sm:h-auto sm:w-1/2" />
-        <div className="flex w-full flex-col items-center justify-center gap-4 px-[0.5in] py-10 text-center sm:w-1/2 sm:items-start sm:text-left">
-          <p className="max-w-sm text-lg">
-            But to make this a reality, we need your help!
-          </p>
+        <div className="flex w-full flex-col items-center justify-center gap-8 px-[0.5in] py-10 sm:w-1/2">
+          <EndorsedByGrid />
           <div className="flex gap-4">
             <a
               href={DONATE_URL}

@@ -24,7 +24,7 @@ function NavLinks({
       </Link>
 
       <nav className="flex items-center gap-6 text-sm font-bold">
-        <Link href="#" className={NAV_LINK_CLASS}>
+        <Link href="/#the-building" className={NAV_LINK_CLASS}>
           About
         </Link>
         <Link href="#" className={NAV_LINK_CLASS}>
@@ -67,6 +67,14 @@ function ActionLinks() {
       >
         Get in touch
       </Link>
+      <a
+        href="/documents/full-proposal.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="rounded-full bg-foreground px-4 py-2 text-sm font-bold text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc]"
+      >
+        Read our proposal
+      </a>
       <Link
         href="https://givebutter.com/LESculturalcenter"
         target="_blank"
