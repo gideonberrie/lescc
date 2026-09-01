@@ -88,6 +88,7 @@ const PEOPLE_GROUPS: {
       { name: "Claudia Gold", role: "Claw Money" },
       { name: "Isabelle Groenewegen", role: "Urbanist" },
       { name: "Erik Foss", role: "Artist" },
+      { name: "Michael Bray", role: "Founder, Bar Valentina" },
     ],
   },
 ];

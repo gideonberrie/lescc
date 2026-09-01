@@ -6,4 +6,5 @@ export const ENDORSEMENT_LOGOS: { src: string; alt: string }[] = [
   { src: "/logos/les-ecology-center.png", alt: "LES Ecology Center" },
   { src: "/logos/lesgc-logo.png", alt: "The Lower Eastside Girls Club" },
   { src: "/logos/porto-rico.jpeg", alt: "Porto Rico Importing Co." },
+  { src: "/logos/colmado-logo-yellow-w-blue-drop_1.webp", alt: "Colmado" },
 ];
