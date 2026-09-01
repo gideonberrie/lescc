@@ -219,6 +219,48 @@ export default function Home() {
       </section>
 
       <section
+        id="who-we-are"
+        className="flex min-h-screen flex-col justify-center gap-10 overflow-x-hidden px-[0.5in] py-10 text-center"
+      >
+        <div className="mx-auto flex max-w-3xl flex-col items-center gap-4">
+          <p className={EYEBROW_CLASS}>LESCC &bull; Built by a Community</p>
+          <p className="text-lg text-zinc-600 sm:text-xl dark:text-zinc-400">
+            <strong className="font-bold">
+              The Lower East Side Cultural Center is being shaped by artists,
+              neighbors, organizers, educators, designers, small-business
+              owners, and civic leaders
+            </strong>{" "}
+            who believe this long-abandoned public space can become something
+            extraordinary.
+          </p>
+          <p className="text-base text-zinc-500 dark:text-zinc-500">
+            Meet the people helping us imagine what comes next.
+          </p>
+        </div>
+
+        <dl className="mx-auto grid w-full max-w-4xl grid-cols-1 gap-8 sm:grid-cols-3">
+          <div className="flex flex-col gap-2">
+            <dt className={EYEBROW_CLASS}>Advisory Council</dt>
+            <dd className="text-sm text-zinc-500 dark:text-zinc-500">
+              Names coming soon.
+            </dd>
+          </div>
+          <div className="flex flex-col gap-2">
+            <dt className={EYEBROW_CLASS}>Team</dt>
+            <dd className="text-sm text-zinc-500 dark:text-zinc-500">
+              Names coming soon.
+            </dd>
+          </div>
+          <div className="flex flex-col gap-2">
+            <dt className={EYEBROW_CLASS}>Community Advocates</dt>
+            <dd className="text-sm text-zinc-500 dark:text-zinc-500">
+              Names coming soon.
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <section
         id="get-involved"
         className="flex min-h-screen flex-col items-center justify-center gap-10 overflow-x-hidden bg-white px-[0.5in] py-6 text-center dark:bg-zinc-950"
       >

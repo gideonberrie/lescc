@@ -27,7 +27,7 @@ function NavLinks({
         <Link href="/#the-building" className={NAV_LINK_CLASS}>
           About
         </Link>
-        <Link href="#" className={NAV_LINK_CLASS}>
+        <Link href="/#who-we-are" className={NAV_LINK_CLASS}>
           Who We Are
         </Link>
         <Link href="/press" className={NAV_LINK_CLASS}>
