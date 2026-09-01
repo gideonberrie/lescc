@@ -36,7 +36,7 @@ function ActionLinks() {
   return (
     <>
       <Link
-        href="https://www.instagram.com/thefreestoreproject/"
+        href="https://www.instagram.com/lesculturalcenter/"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Instagram"

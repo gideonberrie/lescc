@@ -42,30 +42,15 @@ export default function HoverPlayVideo({
     setPlaying(false);
   }
 
-  function handleClick() {
-    if (playing) {
-      stop();
-    } else {
-      play();
-    }
-  }
-
   return (
-    <div
-      role="button"
-      tabIndex={0}
+    <a
+      href="https://www.instagram.com/lesculturalcenter/"
+      target="_blank"
+      rel="noopener noreferrer"
       onMouseEnter={play}
       onMouseLeave={stop}
-      onClick={handleClick}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          handleClick();
-        }
-      }}
-      aria-pressed={playing}
-      aria-label={`${playing ? "Pause" : "Play"} ${label}`}
-      className="relative h-full w-full min-w-0 cursor-pointer overflow-hidden bg-zinc-900"
+      aria-label={`${label} — view on Instagram`}
+      className="relative block h-full w-full min-w-0 cursor-pointer overflow-hidden bg-zinc-900"
     >
       <video
         ref={videoRef}
@@ -76,6 +61,6 @@ export default function HoverPlayVideo({
         preload="none"
         className="h-full w-full object-cover"
       />
-    </div>
+    </a>
   );
 }

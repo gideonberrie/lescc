@@ -79,7 +79,9 @@ export default function Home() {
         />
         <div className="relative flex w-full min-w-0 flex-col items-center gap-3">
           <h1 className="max-w-2xl text-3xl font-black tracking-tight text-[#068e4a] sm:text-4xl">
-            A new home for culture, preservation, and coffee
+            A new home for culture, preservation
+            <br />
+            and coffee!
           </h1>
           <p className="max-w-xl text-base text-zinc-600 dark:text-zinc-400">
             Our mission is to preserve the Lower East Side&rsquo;s cultural
@@ -161,7 +163,7 @@ export default function Home() {
 
         <p className="mx-auto w-full text-center text-lg text-zinc-600 sm:px-[1in] sm:text-xl dark:text-zinc-400">
           <strong className="font-bold">
-            We propose to renovate the building into a multidisciplinary
+            We propose reactivating the building into a multidisciplinary
             cultural hub
           </strong>{" "}
           — offering low-cost arts education, community storytelling,
@@ -240,12 +242,12 @@ export default function Home() {
             <dt className={EYEBROW_CLASS}>Instagram</dt>
             <dd>
               <a
-                href="https://www.instagram.com/thefreestoreproject/"
+                href="https://www.instagram.com/lesculturalcenter/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-600 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50"
               >
-                @thefreestoreproject
+                @lesculturalcenter
               </a>
             </dd>
           </div>
