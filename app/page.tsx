@@ -39,6 +39,59 @@ const VIDEOS: { src: string; poster: string; label: string }[] = [
 const EYEBROW_CLASS =
   "text-xs font-black tracking-wide text-[#068e4a] uppercase";
 
+const PEOPLE_GROUPS: {
+  title: string;
+  people: { name: string; role: string }[];
+}[] = [
+  {
+    title: "Advisory Council",
+    people: [
+      { name: "Yuh-Line Niou", role: "Former NYS Assemblymember" },
+      {
+        name: "David Garza",
+        role: "President and CEO of the Henry Street Settlement",
+      },
+      { name: "Kathryn Lloyd", role: "Tenement Museum VP of Programs" },
+      { name: "Jenny Dembrow", role: "The Lower Eastside Girls Club" },
+      {
+        name: "Illapa Sairitupac",
+        role: "Democratic Nominee for NYS Assembly District 65",
+      },
+      {
+        name: "Tom Lagatta",
+        role: "Democratic Party County Committee Member, AD 65, ED 009",
+      },
+    ],
+  },
+  {
+    title: "Team",
+    people: [
+      { name: "Myles Smutney", role: "Artist & Community Organizer" },
+      {
+        name: "Gideon Berrie",
+        role: "Urban Planning and Outreach Coordinator",
+      },
+      {
+        name: "Paul A Castrucci",
+        role: "Founder and Principal, Paul A. Castrucci Architects",
+      },
+    ],
+  },
+  {
+    title: "Community Advocates",
+    people: [
+      { name: "Juan Barahona", role: "Principal, SMJ Development" },
+      {
+        name: "Lucy Tuchman",
+        role: "Senior Policy Analyst, Public Works LLC",
+      },
+      { name: "Claudia Gold", role: "Claw Money" },
+      { name: "Isabelle Groenewegen", role: "Urbanist" },
+      { name: "Erik Foss", role: "Artist" },
+    ],
+  },
+];
+
 const DONATE_URL = "https://givebutter.com/LESculturalcenter";
 
 function BeforeAfterImage({
@@ -238,25 +291,26 @@ export default function Home() {
           </p>
         </div>
 
-        <dl className="mx-auto grid w-full max-w-4xl grid-cols-1 gap-8 sm:grid-cols-3">
-          <div className="flex flex-col gap-2">
-            <dt className={EYEBROW_CLASS}>Advisory Council</dt>
-            <dd className="text-sm text-zinc-500 dark:text-zinc-500">
-              Names coming soon.
-            </dd>
-          </div>
-          <div className="flex flex-col gap-2">
-            <dt className={EYEBROW_CLASS}>Team</dt>
-            <dd className="text-sm text-zinc-500 dark:text-zinc-500">
-              Names coming soon.
-            </dd>
-          </div>
-          <div className="flex flex-col gap-2">
-            <dt className={EYEBROW_CLASS}>Community Advocates</dt>
-            <dd className="text-sm text-zinc-500 dark:text-zinc-500">
-              Names coming soon.
-            </dd>
-          </div>
+        <dl className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-10 sm:grid-cols-3">
+          {PEOPLE_GROUPS.map((group) => (
+            <div key={group.title} className="flex flex-col gap-4">
+              <dt className={EYEBROW_CLASS}>{group.title}</dt>
+              <dd>
+                <ul className="flex flex-col gap-3">
+                  {group.people.map((person) => (
+                    <li key={person.name}>
+                      <p className="font-bold text-zinc-800 dark:text-zinc-200">
+                        {person.name}
+                      </p>
+                      <p className="text-xs text-zinc-500 dark:text-zinc-500">
+                        {person.role}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </dd>
+            </div>
+          ))}
         </dl>
       </section>
 
