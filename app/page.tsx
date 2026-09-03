@@ -111,12 +111,7 @@ const ADVISOR_GROUPS: { category: string; people: Person[] }[] = [
 
 function PersonItem({ person }: { person: Person }) {
   return (
-    <li>
-      <p className="font-bold text-zinc-800 dark:text-zinc-200">
-        {person.name}
-      </p>
-      <p className="text-xs text-zinc-500 dark:text-zinc-500">{person.role}</p>
-    </li>
+    <li className="font-bold text-zinc-800 dark:text-zinc-200">{person.name}</li>
   );
 }
 
@@ -173,12 +168,12 @@ export default function Home() {
           </p>
           <div className="flex flex-col gap-3 sm:flex-row">
             <a
-              href="/documents/full-proposal.pdf"
+              href={DONATE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-foreground px-6 py-2.5 text-sm font-bold text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc]"
+              className="rounded-full bg-[#068e4a] px-6 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[#057a3f]"
             >
-              See our plan
+              Support our mission
             </a>
             <a
               href="#get-involved"
@@ -324,7 +319,7 @@ export default function Home() {
             <div key={group.title} className="flex flex-col gap-4">
               <dt className={EYEBROW_CLASS}>{group.title}</dt>
               <dd>
-                <ul className="flex flex-col gap-3">
+                <ul className="flex flex-col gap-2">
                   {group.people.map((person) => (
                     <PersonItem key={person.name} person={person} />
                   ))}
@@ -343,7 +338,7 @@ export default function Home() {
                   {group.category}
                 </dt>
                 <dd>
-                  <ul className="flex flex-col gap-3">
+                  <ul className="flex flex-col gap-2">
                     {group.people.map((person) => (
                       <PersonItem key={person.name} person={person} />
                     ))}
