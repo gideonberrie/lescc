@@ -39,28 +39,14 @@ const VIDEOS: { src: string; poster: string; label: string }[] = [
 const EYEBROW_CLASS =
   "text-xs font-black tracking-wide text-[#068e4a] uppercase";
 
-const PEOPLE_GROUPS: {
-  title: string;
-  people: { name: string; role: string }[];
-}[] = [
+type Person = { name: string; role: string };
+
+const LEAD_GROUPS: { title: string; people: Person[] }[] = [
   {
     title: "Advisory Council",
     people: [
       { name: "Yuh-Line Niou", role: "Former NYS Assemblymember" },
-      {
-        name: "David Garza",
-        role: "President and CEO of the Henry Street Settlement",
-      },
-      { name: "Kathryn Lloyd", role: "Tenement Museum VP of Programs" },
-      { name: "Jenny Dembrow", role: "The Lower Eastside Girls Club" },
-      {
-        name: "Illapa Sairitupac",
-        role: "Democratic Nominee for NYS Assembly District 65",
-      },
-      {
-        name: "Tom Lagatta",
-        role: "Democratic Party County Committee Member, AD 65, ED 009",
-      },
+      { name: "Claudia Gold", role: "ClawMoney" },
     ],
   },
   {
@@ -71,27 +57,68 @@ const PEOPLE_GROUPS: {
         name: "Gideon Berrie",
         role: "Urban Planning and Outreach Coordinator",
       },
+    ],
+  },
+];
+
+const ADVISOR_GROUPS: { category: string; people: Person[] }[] = [
+  {
+    category: "Civic Life + Development",
+    people: [
       {
-        name: "Paul A Castrucci",
-        role: "Founder and Principal, Paul A. Castrucci Architects",
+        name: "David Garza",
+        role: "President and CEO of the Henry Street Settlement",
+      },
+      {
+        name: "Illapa Sairitupac",
+        role: "Democratic Nominee for NYS Assembly District 65",
+      },
+      { name: "Kathryn Lloyd", role: "Tenement Museum VP of Programs" },
+      { name: "Jenny Dembrow", role: "The Lower Eastside Girls Club" },
+      {
+        name: "Tom Lagatta",
+        role: "Democratic Party County Committee Member, AD 65, ED 009",
       },
     ],
   },
   {
-    title: "Community Advocates",
+    category: "Arts + Culture",
+    people: [{ name: "Erik Foss", role: "Artist" }],
+  },
+  {
+    category: "Design + Public Space",
     people: [
+      {
+        name: "Paul A Castrucci",
+        role: "Founder and Principal, Paul A. Castrucci Architects",
+      },
       { name: "Juan Barahona", role: "Principal, SMJ Development" },
+      { name: "Isabelle Groenewegen", role: "Urbanist" },
       {
         name: "Lucy Tuchman",
         role: "Senior Policy Analyst, Public Works LLC",
       },
-      { name: "Claudia Gold", role: "Claw Money" },
-      { name: "Isabelle Groenewegen", role: "Urbanist" },
-      { name: "Erik Foss", role: "Artist" },
-      { name: "Michael Bray", role: "Founder, Bar Valentina" },
+    ],
+  },
+  {
+    category: "Economy + Local Opportunity",
+    people: [
+      { name: "Coss Marte", role: "Founder of CONBODY" },
+      { name: "Michael Bray", role: "Founder of Bar Valentina" },
     ],
   },
 ];
+
+function PersonItem({ person }: { person: Person }) {
+  return (
+    <li>
+      <p className="font-bold text-zinc-800 dark:text-zinc-200">
+        {person.name}
+      </p>
+      <p className="text-xs text-zinc-500 dark:text-zinc-500">{person.role}</p>
+    </li>
+  );
+}
 
 const DONATE_URL = "https://givebutter.com/LESculturalcenter";
 
@@ -292,27 +319,40 @@ export default function Home() {
           </p>
         </div>
 
-        <dl className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-10 sm:grid-cols-3">
-          {PEOPLE_GROUPS.map((group) => (
+        <dl className="mx-auto grid w-full max-w-xl grid-cols-1 gap-10 sm:grid-cols-2">
+          {LEAD_GROUPS.map((group) => (
             <div key={group.title} className="flex flex-col gap-4">
               <dt className={EYEBROW_CLASS}>{group.title}</dt>
               <dd>
                 <ul className="flex flex-col gap-3">
                   {group.people.map((person) => (
-                    <li key={person.name}>
-                      <p className="font-bold text-zinc-800 dark:text-zinc-200">
-                        {person.name}
-                      </p>
-                      <p className="text-xs text-zinc-500 dark:text-zinc-500">
-                        {person.role}
-                      </p>
-                    </li>
+                    <PersonItem key={person.name} person={person} />
                   ))}
                 </ul>
               </dd>
             </div>
           ))}
         </dl>
+
+        <div className="mx-auto w-full max-w-5xl">
+          <p className={EYEBROW_CLASS}>Community Advisors</p>
+          <dl className="mt-8 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            {ADVISOR_GROUPS.map((group) => (
+              <div key={group.category} className="flex flex-col gap-4">
+                <dt className="text-xs font-black tracking-wide text-zinc-500 uppercase dark:text-zinc-400">
+                  {group.category}
+                </dt>
+                <dd>
+                  <ul className="flex flex-col gap-3">
+                    {group.people.map((person) => (
+                      <PersonItem key={person.name} person={person} />
+                    ))}
+                  </ul>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       </section>
 
       <section
