@@ -30,6 +30,7 @@ export default function Footer() {
 
       <div className="border-t border-black/[.08] px-[0.5in] py-4 text-xs text-zinc-500 dark:border-white/[.145] dark:text-zinc-500">
         <p>© {new Date().getFullYear()} LESCC. All rights reserved.</p>
+        <p className="mt-1">My LES Cultural Center, Inc. EIN 42-2284552</p>
       </div>
     </footer>
   );

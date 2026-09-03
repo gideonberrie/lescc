@@ -39,14 +39,17 @@ const VIDEOS: { src: string; poster: string; label: string }[] = [
 const EYEBROW_CLASS =
   "text-xs font-black tracking-wide text-[#068e4a] uppercase";
 
-type Person = { name: string; role: string };
+type Person = { name: string; role?: string };
 
 const LEAD_GROUPS: { title: string; people: Person[] }[] = [
   {
     title: "Advisory Council",
     people: [
-      { name: "Yuh-Line Niou", role: "Former NYS Assemblymember" },
-      { name: "Claudia Gold", role: "ClawMoney" },
+      { name: "Yuh-Line Niou" },
+      { name: "Ariel Palitz" },
+      { name: "Tian Weinberg" },
+      { name: "Tom Finkelpearl" },
+      { name: "Ulli Rimkus" },
     ],
   },
   {
@@ -55,63 +58,86 @@ const LEAD_GROUPS: { title: string; people: Person[] }[] = [
       { name: "Myles Smutney", role: "Artist & Community Organizer" },
       {
         name: "Gideon Berrie",
-        role: "Urban Planning and Outreach Coordinator",
+        role: "Urban Planner & Public-Space Advocate",
       },
+      {
+        name: "Fatima Ashraf",
+        role: "Public Policy, Community Development & Social Impact Strategist",
+      },
+      { name: "Paul A Castrucci Architects" },
+      { name: "Peter E Longo, Porto Rico Coffee" },
     ],
   },
 ];
 
 const ADVISOR_GROUPS: { category: string; people: Person[] }[] = [
   {
-    category: "Civic Life + Development",
+    category: "Arts + Culture",
     people: [
-      {
-        name: "David Garza",
-        role: "President and CEO of the Henry Street Settlement",
-      },
-      {
-        name: "Illapa Sairitupac",
-        role: "Democratic Nominee for NYS Assembly District 65",
-      },
-      { name: "Kathryn Lloyd", role: "Tenement Museum VP of Programs" },
-      { name: "Jenny Dembrow", role: "The Lower Eastside Girls Club" },
-      {
-        name: "Tom Lagatta",
-        role: "Democratic Party County Committee Member, AD 65, ED 009",
-      },
+      { name: "Claudia Gold (aka ClawMoney)" },
+      { name: "Alejandro Epifanio" },
+      { name: "Erik Foss" },
+      { name: "Destiny Mata" },
+      { name: "Louis Shannon" },
     ],
   },
   {
-    category: "Arts + Culture",
-    people: [{ name: "Erik Foss", role: "Artist" }],
+    category: "Community + Development",
+    people: [
+      { name: "Kat Lloyd" },
+      { name: "Tom LaGatta" },
+      { name: "Lilah Mejia" },
+      { name: "Micah Bucey" },
+    ],
+  },
+  {
+    category: "Youth + Learning",
+    people: [
+      { name: "Jenny Dembrow" },
+      { name: "David Garza" },
+      { name: "Melissa Asae" },
+      { name: "Alison Stumpf" },
+    ],
   },
   {
     category: "Design + Public Space",
     people: [
-      {
-        name: "Paul A Castrucci",
-        role: "Founder and Principal, Paul A. Castrucci Architects",
-      },
-      { name: "Juan Barahona", role: "Principal, SMJ Development" },
-      { name: "Isabelle Groenewegen", role: "Urbanist" },
-      {
-        name: "Lucy Tuchman",
-        role: "Senior Policy Analyst, Public Works LLC",
-      },
+      { name: "Isabelle Groenewegen" },
+      { name: "Juan Barahona" },
+      { name: "Lucy Tuchman" },
+      { name: "Antonio Lopez" },
     ],
   },
   {
     category: "Economy + Local Opportunity",
     people: [
-      { name: "Coss Marte", role: "Founder of CONBODY" },
-      { name: "Michael Bray", role: "Founder of Bar Valentina" },
+      { name: "Peter & Peter E Longo, Porto Rico Coffee" },
+      { name: "Coss Marte" },
+      { name: "Michael Bray" },
+    ],
+  },
+  {
+    category: "Civic Life + Advocacy",
+    people: [
+      { name: "Illapa Suritupac" },
+      { name: "Sarah Batchtu" },
+      { name: "Frank Avila-Goldman" },
     ],
   },
 ];
 
 function PersonItem({ person }: { person: Person }) {
   return (
-    <li className="font-bold text-zinc-800 dark:text-zinc-200">{person.name}</li>
+    <li>
+      <p className="font-bold text-zinc-800 dark:text-zinc-200">
+        {person.name}
+      </p>
+      {person.role ? (
+        <p className="text-xs text-zinc-500 dark:text-zinc-500">
+          {person.role}
+        </p>
+      ) : null}
+    </li>
   );
 }
 
@@ -330,8 +356,8 @@ export default function Home() {
         </dl>
 
         <div className="mx-auto w-full max-w-5xl">
-          <p className={EYEBROW_CLASS}>Community Advisors</p>
-          <dl className="mt-8 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <p className={EYEBROW_CLASS}>Community Advisory Team</p>
+          <dl className="mt-8 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
             {ADVISOR_GROUPS.map((group) => (
               <div key={group.category} className="flex flex-col gap-4">
                 <dt className="text-xs font-black tracking-wide text-zinc-500 uppercase dark:text-zinc-400">
