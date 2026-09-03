@@ -55,7 +55,7 @@ const LEAD_GROUPS: { title: string; people: Person[] }[] = [
   {
     title: "Team",
     people: [
-      { name: "Myles Smutney", role: "Artist & Community Organizer" },
+      { name: "Myles Smutney", role: "Community Organizer, Founder The Free Store Project" },
       {
         name: "Gideon Berrie",
         role: "Urban Planner & Public-Space Advocate",
@@ -119,8 +119,8 @@ const ADVISOR_GROUPS: { category: string; people: Person[] }[] = [
   {
     category: "Civic Life + Advocacy",
     people: [
-      { name: "Illapa Suritupac" },
-      { name: "Sarah Batchtu" },
+      { name: "Illapa Sairitupac" },
+      { name: "Sarah Batchu" },
       { name: "Frank Avila-Goldman" },
     ],
   },
