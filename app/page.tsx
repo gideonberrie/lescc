@@ -45,17 +45,29 @@ const LEAD_GROUPS: { title: string; people: Person[] }[] = [
   {
     title: "Advisory Council",
     people: [
-      { name: "Yuh-Line Niou" },
-      { name: "Ariel Palitz" },
-      { name: "Tian Weinberg" },
-      { name: "Tom Finkelpearl" },
-      { name: "Ulli Rimkus" },
+      {
+        name: "Yuh-Line Niou",
+        role: "Former NYS Assemblymember, Founder Outlier Strategies",
+      },
+      {
+        name: "Ariel Palitz",
+        role: "Lobbyist/Founder All Hours Advisory NYC, Fmr Nightlife Mayor NYC",
+      },
+      { name: "Tian Weinberg", role: "All Hours NYC Venue Advisor" },
+      {
+        name: "Tom Finkelpearl",
+        role: "Author/Curator, Fmr Director Queens Museum, Fmr Commissioner for the NYC Department of Cultural Affairs",
+      },
+      { name: "Ulli Rimkus", role: "Owner Max Fish Bar & Pink Pony Cafe" },
     ],
   },
   {
     title: "Team",
     people: [
-      { name: "Myles Smutney", role: "Community Organizer, Founder The Free Store Project" },
+      {
+        name: "Myles Smutney",
+        role: "Community Organizer, Founder The Free Store Project",
+      },
       {
         name: "Gideon Berrie",
         role: "Urban Planner & Public-Space Advocate",
@@ -74,54 +86,104 @@ const ADVISOR_GROUPS: { category: string; people: Person[] }[] = [
   {
     category: "Arts + Culture",
     people: [
-      { name: "Claudia Gold (aka ClawMoney)" },
-      { name: "Alejandro Epifanio" },
-      { name: "Erik Foss" },
-      { name: "Destiny Mata" },
-      { name: "Louis Shannon" },
+      { name: "Claudia Gold aka ClawMoney", role: "Artist" },
+      {
+        name: "Alejandro Epifanio",
+        role: "Executive & Artistic Director The Loisaida Center",
+      },
+      { name: "Erik Foss", role: "Artist/Curator" },
+      { name: "Destiny Mata", role: "Artist/Activist, Author" },
+      { name: "Louis Shannon", role: "Owner Entrance Gallery" },
     ],
   },
   {
     category: "Community + Development",
     people: [
-      { name: "Kat Lloyd" },
-      { name: "Tom LaGatta" },
-      { name: "Lilah Mejia" },
-      { name: "Micah Bucey" },
+      {
+        name: "Kat Lloyd",
+        role: "Vice President of Programs Tenement Museum",
+      },
+      {
+        name: "Tom LaGatta",
+        role: "Community Organizer, Democratic Party Committee Member AD 65, ED009",
+      },
+      { name: "Lilah Mejia", role: "Community Activist" },
+      {
+        name: "Rev Micah Bucey",
+        role: "Senior Minister Judson Memorial Church",
+      },
+      {
+        name: "Ian McDermott",
+        role: "NYS Procurement & Administrative Regulations",
+      },
     ],
   },
   {
     category: "Youth + Learning",
     people: [
-      { name: "Jenny Dembrow" },
-      { name: "David Garza" },
-      { name: "Melissa Asae" },
-      { name: "Alison Stumpf" },
+      {
+        name: "Jenny Dembrow",
+        role: "Executive Director Lower East Side Girls Club",
+      },
+      {
+        name: "David Garza",
+        role: "President & Chief Executive Officer Henry Street Settlement",
+      },
+      {
+        name: "Melissa Asae",
+        role: "Chief Executive Officer University Settlement",
+      },
+      {
+        name: "Alison Stumpf",
+        role: "Artist, Educator LES Yearbook Committee Member",
+      },
     ],
   },
   {
     category: "Design + Public Space",
     people: [
-      { name: "Isabelle Groenewegen" },
-      { name: "Juan Barahona" },
-      { name: "Lucy Tuchman" },
-      { name: "Antonio Lopez" },
+      {
+        name: "Isabelle Groenewegen",
+        role: "Communications Director Diller, Scofidio + Renfro Architecture",
+      },
+      { name: "Juan Barahona", role: "Principal SMJ Development" },
+      {
+        name: "Lucy Tuchman",
+        role: "Senior Policy Analyst Public Works LLC",
+      },
+      {
+        name: "Antonio Lopez",
+        role: "Director of Development LES Ecology Center",
+      },
     ],
   },
   {
     category: "Economy + Local Opportunity",
     people: [
       { name: "Peter & Peter E Longo, Porto Rico Coffee" },
-      { name: "Coss Marte" },
-      { name: "Michael Bray" },
+      { name: "Coss Marte", role: "Activist/Founder Conbody & ConBud" },
+      {
+        name: "Michael Bray",
+        role: "Owner Bar Valentina, Member LES BID Expansion Committee",
+      },
     ],
   },
   {
     category: "Civic Life + Advocacy",
     people: [
-      { name: "Illapa Sairitupac" },
+      {
+        name: "Illapa Sairitupac",
+        role: "Community Organizer, Democratic Nominee for NYS Assembly District 65",
+      },
       { name: "Sarah Batchu" },
-      { name: "Frank Avila-Goldman" },
+      {
+        name: "Frank Avila-Goldman",
+        role: "Executive Director at The Estate of Roy Lichtenstein/NYC Parks & Community Advocate",
+      },
+      {
+        name: "Kanielle Hernandez",
+        role: "Author, Chief Executive Officer/President The Loisaida Foundry, Inc",
+      },
     ],
   },
 ];
