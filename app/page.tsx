@@ -51,12 +51,12 @@ const LEAD_GROUPS: { title: string; people: Person[] }[] = [
       },
       {
         name: "Ariel Palitz",
-        role: "Lobbyist/Founder All Hours Advisory NYC, Fmr Nightlife Mayor NYC",
+        role: "Lobbyist/Founder All Hours Advisory NYC, Former Nightlife Mayor NYC",
       },
       { name: "Tian Weinberg", role: "All Hours NYC Venue Advisor" },
       {
         name: "Tom Finkelpearl",
-        role: "Author/Curator, Fmr Director Queens Museum, Fmr Commissioner for the NYC Department of Cultural Affairs",
+        role: "Author/Curator, Former Director Queens Museum, Former Commissioner for the NYC Department of Cultural Affairs",
       },
       { name: "Ulli Rimkus", role: "Owner Max Fish Bar & Pink Pony Cafe" },
     ],
@@ -127,11 +127,11 @@ const ADVISOR_GROUPS: { category: string; people: Person[] }[] = [
       },
       {
         name: "David Garza",
-        role: "President & Chief Executive Officer Henry Street Settlement",
+        role: "President & CEO Henry Street Settlement",
       },
       {
         name: "Melissa Asae",
-        role: "Chief Executive Officer University Settlement",
+        role: "CEO University Settlement",
       },
       {
         name: "Alison Stumpf",
