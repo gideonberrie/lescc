@@ -126,10 +126,6 @@ const ADVISOR_GROUPS: { category: string; people: Person[] }[] = [
         role: "Executive Director Lower East Side Girls Club",
       },
       {
-        name: "David Garza",
-        role: "President & CEO Henry Street Settlement",
-      },
-      {
         name: "Melissa Asae",
         role: "CEO University Settlement",
       },
