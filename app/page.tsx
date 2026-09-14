@@ -78,6 +78,10 @@ const LEAD_GROUPS: { title: string; people: Person[] }[] = [
       },
       { name: "Paul A Castrucci Architects" },
       { name: "Peter E Longo, Porto Rico Coffee" },
+      {
+        name: "Darren Methlie",
+        role: "Film/Content Editor, Fmr Media Manager under Mayor Bloomberg",
+      },
     ],
   },
 ];
