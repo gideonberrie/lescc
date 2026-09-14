@@ -80,7 +80,7 @@ const LEAD_GROUPS: { title: string; people: Person[] }[] = [
       { name: "Peter E Longo, Porto Rico Coffee" },
       {
         name: "Darren Methlie",
-        role: "Film/Content Editor, Fmr Media Manager under Mayor Bloomberg",
+        role: "Film/Content Editor, Former Media Manager under Mayor Bloomberg",
       },
     ],
   },
