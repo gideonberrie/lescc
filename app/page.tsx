@@ -338,11 +338,10 @@ export default function Home() {
 
         <div className="mx-auto flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
-            href="/documents/full-proposal.pdf"
-            download="LESCC-Allen-Street-Proposal.pdf"
+            href="mailto:lowereastsideculturalcenter@gmail.com"
             className="rounded-full bg-foreground px-6 py-3 text-sm font-bold text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc]"
           >
-            Read the full proposal here
+            Want to read our full proposal? Get in touch!
           </a>
           <a
             href={DONATE_URL}

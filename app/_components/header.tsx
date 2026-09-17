@@ -67,14 +67,6 @@ function ActionLinks() {
       >
         Get in touch
       </Link>
-      <a
-        href="/documents/full-proposal.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="rounded-full bg-foreground px-4 py-2 text-sm font-bold text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc]"
-      >
-        Read our proposal
-      </a>
       <Link
         href="https://givebutter.com/LESculturalcenter"
         target="_blank"

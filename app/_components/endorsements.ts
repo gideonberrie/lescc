@@ -1,5 +1,4 @@
 export const ENDORSEMENT_LOGOS: { src: string; alt: string }[] = [
-  { src: "/logos/HSS-Logo_Square_Red.png", alt: "Henry Street Settlement" },
   { src: "/logos/university-settlement.jpg", alt: "University Settlement" },
   { src: "/logos/TM-logo.jpeg", alt: "Tenement Museum" },
   { src: "/logos/Loisaida-Center-Logo.png", alt: "The Loisaida Center" },
