@@ -180,10 +180,6 @@ const ADVISOR_GROUPS: { category: string; people: Person[] }[] = [
         name: "Frank Avila-Goldman",
         role: "Executive Director at The Estate of Roy Lichtenstein/NYC Parks & Community Advocate",
       },
-      {
-        name: "Kanielle Hernandez",
-        role: "Author, Chief Executive Officer/President The Loisaida Foundry, Inc",
-      },
     ],
   },
 ];
